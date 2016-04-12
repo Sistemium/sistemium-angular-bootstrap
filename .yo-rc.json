@@ -1,0 +1,30 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "Albert Kovalevskij",
+        "email": "kovalevskij.albert@gmail.com"
+      },
+      "libraryName": {
+        "original": "sistemium-angular-bootstrap",
+        "camelized": "sistemiumAngularBootstrap",
+        "dasherized": "sistemium-angular-bootstrap",
+        "slugified": "sistemium-angular-bootstrap",
+        "parts": [
+          "sistemium",
+          "angular",
+          "bootstrap"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": true,
+      "includeModuleServices": true,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/sistemium-angular-bootstrap",
+      "libraryUnitTestDirectory": "test/unit/sistemium-angular-bootstrap",
+      "libraryUnitE2eDirectory": "test/e2e/sistemium-angular-bootstrap"
+    }
+  }
+}
