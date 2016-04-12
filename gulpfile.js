@@ -30,11 +30,22 @@ var sourceFiles = [
   path.join(sourceDirectory, '/**/*.js')
 ];
 
+var styleFiles = [
+
+  path.join(sourceDirectory, '/sistemium-angular-bootstrap/')
+];
+
 var lintFiles = [
   'gulpfile.js',
   // Karma configuration
   'karma-*.conf.js'
 ].concat(sourceFiles);
+
+gulp.task('styles', function () {
+  gulp.src(styleFiles)
+    .pipe(concat('sistemium-angular-bootstrap.scss'))
+    .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('build', function() {
   gulp.src(sourceFiles)
