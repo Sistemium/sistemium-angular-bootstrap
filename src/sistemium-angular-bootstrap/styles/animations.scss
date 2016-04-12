@@ -1,0 +1,60 @@
+.isLoading.spin {
+  -webkit-animation: spin 1s infinite linear;
+  -moz-animation: spin 1s infinite linear;
+  -o-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin:50% 50%;
+  -ms-transform-origin:50% 50%; /* IE 9 */
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-holder- {
+  font-size: 16px;
+}
+
+.spin {
+  padding-top:2px;
+}
+
+@-moz-document url-prefix() {
+  .spin {
+    padding-top:0px;
+  }
+}
+
+.btn .spin {
+  top: 2px;
+  padding-top: 0;
+}
+
+i.spin.fa {
+  font-weight: 800;
+  font-size: 17px;
+}
