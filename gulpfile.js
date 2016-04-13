@@ -69,8 +69,19 @@ var buildStyles = function() {
     .pipe(gulp.dest('./dist'));
 };
 
+/**
+ * Styles
+ */
 gulp.task('styles', function() {
   return buildStyles();
+});
+
+/**
+ * Fonts
+ */
+gulp.task('fonts', function () {
+  return gulp.src('./bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*')
+    .pipe(gulp.dest('./dist/fonts'));
 });
 
 gulp.task('build', function() {
@@ -87,7 +98,7 @@ gulp.task('build', function() {
  * Process
  */
 gulp.task('process-all', function (done) {
-  runSequence('jshint', 'test-src', 'styles', 'build', done);
+  runSequence('jshint', 'test-src', 'fonts', 'styles', 'build', done);
 });
 
 /**
