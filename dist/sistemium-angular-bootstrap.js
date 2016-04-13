@@ -6,22 +6,25 @@
 
   // Config
   angular.module('sistemiumBootstrap.config', [])
-      .value('sistemiumBootstrap.config', {
-          debug: true
-      });
+    .value('sistemiumBootstrap.config', {
+      debug: true
+    });
 
   // Modules
-  angular.module('sistemiumBootstrap.dependencies', []);
+  angular.module('sistemiumBootstrap.dependencies', [
+    'ui.bootstrap'
+  ]);
   angular.module('sistemiumBootstrap.directives', []);
   angular.module('sistemiumBootstrap.filters', []);
   angular.module('sistemiumBootstrap.services', []);
   angular.module('sistemiumBootstrap',
-      [
-          'sistemiumBootstrap.config',
-          'sistemiumBootstrap.directives',
-          'sistemiumBootstrap.filters',
-          'sistemiumBootstrap.services'
-      ]);
+    [
+      'sistemiumBootstrap.dependencies',
+      'sistemiumBootstrap.config',
+      'sistemiumBootstrap.directives',
+      'sistemiumBootstrap.filters',
+      'sistemiumBootstrap.services'
+    ]);
 
 })(angular);
 
