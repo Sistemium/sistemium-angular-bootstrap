@@ -32,7 +32,7 @@ var sourceFiles = [
 
 var styleFiles = [
 
-  path.join(sourceDirectory, '/sistemium-angular-bootstrap/')
+  path.join(sourceDirectory, '/sistemium-angular-bootstrap/styles/**/*.scss')
 ];
 
 var lintFiles = [
@@ -44,7 +44,7 @@ var lintFiles = [
 gulp.task('styles', function () {
   gulp.src(styleFiles)
     .pipe(concat('sistemium-angular-bootstrap.scss'))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('build', function() {
@@ -61,7 +61,7 @@ gulp.task('build', function() {
  * Process
  */
 gulp.task('process-all', function (done) {
-  runSequence('jshint', 'test-src', 'build', done);
+  runSequence('jshint', 'test-src', 'styles', 'build', done);
 });
 
 /**
