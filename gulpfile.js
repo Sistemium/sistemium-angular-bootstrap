@@ -80,7 +80,7 @@ gulp.task('styles', function() {
  * Fonts
  */
 gulp.task('fonts', function () {
-  return gulp.src('./bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*')
+  return gulp.src('./bower_components/bootstrap-sass/assets/fonts/**/*.*')
     .pipe(gulp.dest('./dist/fonts'));
 });
 
