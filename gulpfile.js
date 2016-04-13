@@ -60,6 +60,7 @@ var buildStyles = function() {
       path.join(sourceDirectory, '/sistemium-angular-bootstrap/index.scss')
     ])
     .pipe($.inject(injectFiles, injectOptions))
+    .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', 'fonts/bootstrap/'))
     .pipe(wiredep(_.extend({}, {
       exclude: [/jquery/, /\/bootstrap\.js$/, /\/bootstrap-sass\/.*\.js/, /\/bootstrap\.css/],
       directory: 'bower_components'
