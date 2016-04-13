@@ -28,7 +28,7 @@ var sourceFiles = [
 
 var styleFiles = [
   path.join(sourceDirectory, '/sistemium-angular-bootstrap/styles/*.scss'),
-  path.join('!' + sourceDirectory, '/sistemium-angular-bootstrap/styles/index.scss')
+  path.join('!' + sourceDirectory, '/sistemium-angular-bootstrap/index.scss')
 ];
 
 var lintFiles = [
@@ -55,7 +55,7 @@ var buildStyles = function() {
   };
 
   return gulp.src([
-      path.join(sourceDirectory, '/sistemium-angular-bootstrap/styles/index.scss')
+      path.join(sourceDirectory, '/sistemium-angular-bootstrap/index.scss')
     ])
     .pipe($.inject(injectFiles, injectOptions))
     .pipe($.sass(sassOptions)).on('error', $.sass.logError)
