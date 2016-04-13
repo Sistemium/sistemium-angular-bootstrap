@@ -7,6 +7,7 @@ var path = require('path');
 var plumber = require('gulp-plumber');
 var runSequence = require('run-sequence');
 var jshint = require('gulp-jshint');
+var sass = require('gulp-sass');
 
 /**
  * File patterns
@@ -44,7 +45,10 @@ var lintFiles = [
 gulp.task('styles', function () {
   gulp.src(styleFiles)
     .pipe(concat('sistemium-angular-bootstrap.scss'))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(rename('sistemium-angular-bootstrap.css'))
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('build', function() {
@@ -70,7 +74,7 @@ gulp.task('process-all', function (done) {
 gulp.task('watch', function () {
 
   // Watch JavaScript files
-  gulp.watch(sourceFiles, ['process-all']);
+  gulp.watch([sourceFiles, styleFiles], ['process-all']);
 
   // watch test files and re-run unit tests when changed
   gulp.watch(path.join(testDirectory, '/**/*.js'), ['test-src']);

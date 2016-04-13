@@ -9,7 +9,7 @@
   ],
   "main": [
     "dist/sistemium-angular-bootstrap.js",
-    "dist/sistemium-angular-bootstrap.scss"
+    "dist/sistemium-angular-bootstrap.css"
   ],
   "ignore": [
     "src",
