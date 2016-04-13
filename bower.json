@@ -1,6 +1,6 @@
 {
   "name": "sistemium-angular-bootstrap",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "authors": [
     {
       "name": "Albert Kovalevskij",
@@ -13,7 +13,12 @@
   ],
   "main": [
     "dist/sistemium-angular-bootstrap.js",
-    "dist/sistemium-angular-bootstrap.css"
+    "dist/sistemium-angular-bootstrap.css",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.eot",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.svg",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.woff",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.woff2"
   ],
   "ignore": [
     "src",
