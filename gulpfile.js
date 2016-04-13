@@ -1,13 +1,8 @@
 var gulp = require('gulp');
 var karma = require('karma').server;
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 var path = require('path');
-var plumber = require('gulp-plumber');
 var runSequence = require('run-sequence');
-var jshint = require('gulp-jshint');
-var sass = require('gulp-sass');
+var $ = require('gulp-load-plugins')();
 
 /**
  * File patterns
@@ -32,8 +27,8 @@ var sourceFiles = [
 ];
 
 var styleFiles = [
-
-  path.join(sourceDirectory, '/sistemium-angular-bootstrap/styles/**/*.scss')
+  path.join(sourceDirectory, '/sistemium-angular-bootstrap/styles/*.scss'),
+  path.join('!' + sourceDirectory, '/sistemium-angular-bootstrap/styles/index.scss')
 ];
 
 var lintFiles = [
@@ -42,22 +37,43 @@ var lintFiles = [
   'karma-*.conf.js'
 ].concat(sourceFiles);
 
-gulp.task('styles', function () {
-  gulp.src(styleFiles)
-    .pipe(concat('sistemium-angular-bootstrap.scss'))
-    .pipe(gulp.dest('./dist/'))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(rename('sistemium-angular-bootstrap.css'))
+var buildStyles = function() {
+  var sassOptions = {
+    style: 'expanded'
+  };
+
+  var injectFiles = gulp.src(styleFiles, { read: false });
+
+  var injectOptions = {
+    transform: function(filePath) {
+      filePath = filePath.replace(sourceDirectory + '/sistemium-angular-bootstrap/', '');
+      return '@import "' + filePath + '";';
+    },
+    starttag: '// injector',
+    endtag: '// endinjector',
+    addRootSlash: false
+  };
+
+  return gulp.src([
+      path.join(sourceDirectory, '/sistemium-angular-bootstrap/styles/index.scss')
+    ])
+    .pipe($.inject(injectFiles, injectOptions))
+    .pipe($.sass(sassOptions)).on('error', $.sass.logError)
+    .pipe($.rename('sistemium-angular-bootstrap.css'))
     .pipe(gulp.dest('./dist'));
+};
+
+gulp.task('styles', function() {
+  return buildStyles();
 });
 
 gulp.task('build', function() {
   gulp.src(sourceFiles)
-    .pipe(plumber())
-    .pipe(concat('sistemium-angular-bootstrap.js'))
+    .pipe($.plumber())
+    .pipe($.concat('sistemium-angular-bootstrap.js'))
     .pipe(gulp.dest('./dist/'))
-    .pipe(uglify())
-    .pipe(rename('sistemium-angular-bootstrap.min.js'))
+    .pipe($.uglify())
+    .pipe($.rename('sistemium-angular-bootstrap.min.js'))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -85,10 +101,10 @@ gulp.task('watch', function () {
  */
 gulp.task('jshint', function () {
   return gulp.src(lintFiles)
-    .pipe(plumber())
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'));
+    .pipe($.plumber())
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.jshint.reporter('fail'));
 });
 
 /**

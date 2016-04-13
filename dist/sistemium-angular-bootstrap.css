@@ -1,3 +1,11 @@
+/**
+ *  Do not remove the comments below. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+/**
+ *  Do not remove the comments below. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
 .animate-show {
   opacity: 1; }
 
@@ -41,6 +49,58 @@ li.animate-show.ng-hide-add, li.animate-show.ng-hide-remove {
     border-color: transparent; }
   50% {
     border-color: blue; } }
+
+.white {
+  color: white; }
+
+.blue {
+  color: blue; }
+
+.red {
+  color: red; }
+
+.gray {
+  color: gray; }
+
+.yellow {
+  color: yellow; }
+
+.green {
+  color: green; }
+
+.darkred {
+  color: darkred; }
+
+.darkgray {
+  color: #4F4F4F; }
+
+.btn-primary {
+  background-color: #4290d0;
+  border-color: #258fbf; }
+
+.table-hover > tbody tr:hover > td,
+.table-hover > tbody tr:hover > th {
+  background: rgba(56, 144, 208, 0.2); }
+
+.table-hover > tbody tr > td.active,
+.table-hover > tbody tr > th.active,
+.table-hover > tbody tr > .active,
+.table-hover > tbody tr.active > td,
+.table-hover > tbody tr.active > th {
+  background-color: rgba(56, 144, 208, 0.5); }
+
+.table-hover > tbody tr > td.active:hover,
+.table-hover > tbody tr > th.active:hover,
+.table-hover > tbody tr.active:hover > td,
+.table-hover > tbody tr:hover > .active,
+.table-hover > tbody tr.active:hover > th {
+  background-color: rgba(56, 144, 208, 0.5); }
+
+a {
+  color: #4290d0; }
+
+a:hover, a:focus {
+  color: #3a7496; }
 
 .white {
   color: white; }
