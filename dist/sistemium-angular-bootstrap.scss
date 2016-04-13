@@ -1,0 +1,198 @@
+.animate-show {
+  opacity: 1;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all ease-out 0.8s;
+}
+
+li.animate-show.ng-hide-add, li.animate-show.ng-hide-remove {
+  background-color: #cccccc;
+  transition: all ease-out 1.2s;
+}
+
+.animate-show.ng-hide {
+  opacity: 0;
+}
+
+$blink-duration: 1s;
+$blink-color: blue;
+
+.blink-underline {
+
+  border-right: solid 1px $blink-color !important;
+
+  -webkit-animation: blink $blink-duration linear 0s infinite;
+  -moz-animation: blink $blink-duration linear 0s infinite;
+  -ms-animation: blink $blink-duration linear 0s infinite;
+  -o-animation: blink $blink-duration linear 0s infinite;
+
+}
+
+@-webkit-keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: $blink-color }
+}
+
+@-moz-keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: $blink-color }
+}
+
+@-ms-keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: $blink-color }
+}
+
+@-o-keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: $blink-color }
+}
+
+.white {
+  color: white;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
+
+.gray {
+  color: gray;
+}
+
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.darkred {
+  color: darkred;
+}
+
+.darkgray {
+  color: #4F4F4F;
+}
+
+$primary-color-active: rgba(56,144,208,0.5);
+$primary-color-hover: rgba(56,144,208,0.2);
+$primary-color: #4290d0;
+$primary-color-border: #258fbf;
+
+
+$state-success-text:             #3c763d;
+$state-success-bg:               #dff0d8;
+$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%);
+
+$state-info-text:                #31708f;
+$state-info-bg:                  #d9edf7;
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%);
+
+$state-warning-text:             #8a6d3b;
+$state-warning-bg:               #fcf8e3;
+$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%);
+
+$state-danger-text:              #a94442;
+$state-danger-bg:                #f2dede;
+$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%);
+
+
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color-border;
+}
+
+.table-hover > tbody {
+
+  tr:hover > td,
+  tr:hover > th {
+    background: $primary-color-hover;
+  }
+
+  tr > td.active,
+  tr > th.active,
+  tr > .active,
+  tr.active > td,
+  tr.active > th {
+    background-color: $primary-color-active;
+  }
+
+  tr > td.active:hover,
+  tr > th.active:hover,
+  tr.active:hover > td,
+  tr:hover > .active,
+  tr.active:hover > th {
+    background-color: $primary-color-active;
+  }
+
+}
+
+a {
+  color: $primary-color;
+}
+
+a:hover, a:focus {
+  color: #3a7496;
+}
+
+//#2a6496;
+
+$shadow-color: #999999;
+$shadow-color-hover: #777777;
+$shadow-width: 6px;
+
+$shadow: 0 0 $shadow-width $shadow-color;
+$shadow-hover: 0 0 $shadow-width+2 $shadow-color-hover;
+
+#toast-container {
+
+  .toast-title {
+    margin-bottom: 5px;
+  }
+
+  .alert {
+    background-image: none !important;
+  }
+
+  .alert.alert-info {
+    color: $state-info-text;
+  }
+
+  .alert.alert-warning {
+    color: $state-warning-text;
+  }
+
+  .alert.alert-success {
+    color: $state-success-text;
+  }
+
+  .alert.alert-danger {
+    color: $state-danger-text;
+  }
+
+  > div {
+    padding: 15px 15px 15px 20px;
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+    border: none;
+  }
+
+  > :hover, > :active, > :focus {
+    -moz-box-shadow: $shadow-hover;
+    -webkit-box-shadow: $shadow-hover;
+    box-shadow: $shadow-hover;
+    outline: none;
+  }
+
+}

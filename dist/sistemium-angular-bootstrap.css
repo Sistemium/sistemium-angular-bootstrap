@@ -1,48 +1,46 @@
-.isLoading.spin {
-  -webkit-animation: spin 1s infinite linear;
-  -moz-animation: spin 1s infinite linear;
-  -o-animation: spin 1s infinite linear;
-  animation: spin 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  /* IE 9 */ }
+.animate-show {
+  opacity: 1; }
 
-@-moz-keyframes spin {
-  from {
-    -moz-transform: rotate(0deg); }
-  to {
-    -moz-transform: rotate(360deg); } }
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all ease-out 0.8s; }
 
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg); }
-  to {
-    -webkit-transform: rotate(360deg); } }
+li.animate-show.ng-hide-add, li.animate-show.ng-hide-remove {
+  background-color: #cccccc;
+  transition: all ease-out 1.2s; }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
+.animate-show.ng-hide {
+  opacity: 0; }
 
-.spin-holder- {
-  font-size: 16px; }
+.blink-underline {
+  border-right: solid 1px blue !important;
+  -webkit-animation: blink 1s linear 0s infinite;
+  -moz-animation: blink 1s linear 0s infinite;
+  -ms-animation: blink 1s linear 0s infinite;
+  -o-animation: blink 1s linear 0s infinite; }
 
-.spin {
-  padding-top: 2px; }
+@-webkit-keyframes blink {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: blue; } }
 
-@-moz-document url-prefix() {
-  .spin {
-    padding-top: 0px; } }
+@-moz-keyframes blink {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: blue; } }
 
-.btn .spin {
-  top: 2px;
-  padding-top: 0; }
+@-ms-keyframes blink {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: blue; } }
 
-i.spin.fa {
-  font-weight: 800;
-  font-size: 17px; }
+@-o-keyframes blink {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: blue; } }
 
 .white {
   color: white; }
