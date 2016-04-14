@@ -27,3 +27,7 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
 gulp.task('default', function () {
   runSequence('clean', 'process-all', 'watch');
 });
+
+gulp.task('dist', function () {
+  runSequence('clean', 'process-all');
+});
