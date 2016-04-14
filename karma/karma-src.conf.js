@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '../',
 
 
     // frameworks to use
@@ -19,14 +19,16 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-phantomjs-launcher',
       'karma-jquery',
-      'karma-chai-jquery'
+      'karma-chai-jquery',
+      'karma-spec-reporter'
     ],
 
     // list of files / patterns to load in the browser
     files: [
-      'bower/angular/angular.js',
-      'bower/angular-mocks/angular-mocks.js',
-      'dist/sistemium-angular-bootstrap.js',
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'src/**/*.module.js',
+      'src/**/*.js',
       'test/unit/**/*.js'
     ],
 
@@ -45,7 +47,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'spec'],
 
 
     // web server port

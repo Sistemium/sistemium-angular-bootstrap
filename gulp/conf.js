@@ -18,6 +18,7 @@ var path = require('path');
 var rootDirectory = path.resolve('./');
 var paths = exports.paths = {
   rootDirectory: rootDirectory,
+  karmaConfigDirectory: path.join(rootDirectory, './karma'),
   sourceDirectory: path.join(rootDirectory, './src'),
   testDirectory: path.join(rootDirectory, './test/unit'),
   dist: path.join(rootDirectory, './dist'),

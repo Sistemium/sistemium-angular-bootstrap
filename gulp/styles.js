@@ -25,7 +25,6 @@ var buildStyles = function() {
   return gulp.src([
       path.join(conf.paths.sourceDirectory, '/sistemium-angular-bootstrap/index.scss')
     ])
-    .pipe($.debug({title: 'before inject:'}))
     .pipe($.inject(injectFiles, injectOptions))
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', 'fonts/bootstrap/'))
     .pipe(wiredep(_.extend({}, {

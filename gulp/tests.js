@@ -8,7 +8,7 @@ var conf = require('./conf');
  */
 gulp.task('test-src', function (done) {
   karma.start({
-    configFile:  path.join(conf.paths.rootDirectory, '/karma-src.conf.js'),
+    configFile:  path.join(conf.paths.rootDirectory, '/karma/karma-src.conf.js'),
     singleRun: true
   }, done);
 });

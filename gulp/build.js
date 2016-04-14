@@ -12,7 +12,7 @@ gulp.task('build', function() {
   return gulp.src(conf.files.sourceFiles)
     .pipe($.plumber())
     .pipe($.concat('sistemium-angular-bootstrap.js'))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
     .pipe($.uglify())
     .pipe($.rename('sistemium-angular-bootstrap.min.js'))
     .pipe(gulp.dest(conf.paths.dist));
