@@ -1,3 +1,5 @@
+'use strict';
+
 (function (angular) {
 
   // Create all modules and define dependencies to make sure they exist

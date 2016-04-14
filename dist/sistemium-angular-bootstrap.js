@@ -1,3 +1,5 @@
+'use strict';
+
 (function (angular) {
 
   // Create all modules and define dependencies to make sure they exist
@@ -27,8 +29,6 @@
     ]);
 
 })(angular);
-
-'use strict';
 
 (function () {
 
@@ -67,22 +67,22 @@
         template: '' +
         '<div class="input-group">' +
         '<div class="input-group-btn" uib-dropdown is-open="vm.isOpen">' +
-        '<button class="button btn btn-default" type="button" uib-dropdown-toggle>{{saSelectModel[saLabelProp]}} ' +
+        '<button class="button btn btn-default" type="button" uib-dropdown-toggle>{{sabSelectModel[sabLabelProp]}} ' +
         '<span class="caret"></span>' +
         '</button>' +
         '<ul class="dropdown-menu">' +
-        '<li ng-repeat="item in saSelectOptions">' +
-        '<a href="" ng-click="vm.setActiveItem(item)">{{item[saLabelProp]}}</a>' +
+        '<li ng-repeat="item in sabSelectOptions">' +
+        '<a href="" ng-click="vm.setActiveItem(item)">{{item[sabLabelProp]}}</a>' +
         '</li>' +
         '</ul>' +
-        '<input class="form-control" ng-model="saInputModel" type="number" ng-required="required"/>',
+        '<input class="form-control" ng-model="sabInputModel" type="number" ng-required="required"/>',
         replace: true,
         scope: {
-          saSelectModel: '=',
-          saInputModel: '=',
-          saLabelProp: '@',
-          saValueProp: '@',
-          saSelectOptions: '=',
+          sabSelectModel: '=',
+          sabInputModel: '=',
+          sabLabelProp: '@',
+          sabValueProp: '@',
+          sabSelectOptions: '=',
           required: '@'
         },
 
