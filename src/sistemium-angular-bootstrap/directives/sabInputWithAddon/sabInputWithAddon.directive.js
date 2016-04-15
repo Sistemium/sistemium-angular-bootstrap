@@ -31,7 +31,8 @@
           sabLabelProp: '@',
           sabValueProp: '@',
           sabSelectOptions: '=',
-          required: '@'
+          required: '@',
+          sabBtnClass: '@'
         },
 
         controller: function ($scope) {
@@ -40,6 +41,8 @@
           vm.setActiveItem = function (item) {
             $scope.sabSelectModel = item;
           };
+
+          vm.sabBtnClass = $scope.sabBtnClass || 'btn-default';
 
         },
         controllerAs: 'vm'
