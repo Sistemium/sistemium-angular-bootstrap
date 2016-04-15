@@ -22,7 +22,7 @@ var paths = exports.paths = {
   sourceDirectory: path.join(rootDirectory, './src'),
   testDirectory: path.join(rootDirectory, './test/unit'),
   dist: path.join(rootDirectory, './dist'),
-  tmp: path.join(rootDirectory, './tmp')
+  tmp: path.join(rootDirectory, './.tmp')
 };
 
 var sourceFiles = [
