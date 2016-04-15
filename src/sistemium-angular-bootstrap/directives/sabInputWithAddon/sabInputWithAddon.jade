@@ -1,9 +1,10 @@
-.input-group
-  .input-group-btn(uib-dropdown is-open='vm.isOpen')
-    button.btn.btn-default(type='button' uib-dropdown-toggle) {{sabSelectModel[sabLabelProp]}}
-      = ' '
-      span.caret
-    ul.dropdown-menu
-      li(ng-repeat='item in sabSelectOptions')
-        a(href='' ng-click='vm.setActiveItem(item)') {{item[sabLabelProp]}}
-  input.form-control(ng-model='sabInputModel' type='number' ng-required='required')
+.form-group
+  .input-group
+    .input-group-btn(uib-dropdown is-open='vm.isOpen')
+      button.btn(type='button' ng-class='vm.sabBtnClass' uib-dropdown-toggle) {{sabSelectModel[sabLabelProp]}}
+        = ' '
+        span.caret
+      ul.dropdown-menu
+        li(ng-repeat='item in sabSelectOptions')
+          a(href='' ng-click='vm.setActiveItem(item)') {{item[sabLabelProp]}}
+    input.form-control(ng-model='sabInputModel' type='number' ng-required='required')
