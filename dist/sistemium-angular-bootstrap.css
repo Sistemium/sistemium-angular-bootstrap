@@ -5869,6 +5869,9 @@ li.animate-show.ng-hide-add, li.animate-show.ng-hide-remove {
   50% {
     border-color: blue; } }
 
+.input-group-btn .btn {
+  height: 34px; }
+
 .white {
   color: white; }
 
