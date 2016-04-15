@@ -33,75 +33,64 @@
 
 (function () {
 
-  angular.module('sistemiumBootstrap.directives')
-    .directive('sabErrorWidget', function () {
+  angular.module('sistemiumBootstrap.services')
+    .service('sabErrors', function () {
 
-      return {
+      var errors = [];
 
-        restrict: 'AC',
-        template: '<div ng-show="dm.errors.length">' +
-        '<uib-alert ng-repeat="error in dm.errors" type="{{error.type}}" close="dm.closeError($index)">' +
-        '{{error.msg}}</uib-alert>' +
-        '</div>',
-        controllerAs: 'dm',
+      var msg = {
+        unknown: function (lang) {
+          switch (lang || 'en') {
 
-        controller: function (saErrors) {
-          var dm = this;
-          dm.errors =  saErrors.errors;
-          dm.closeError = function (index) {
-            dm.errors.splice(index, 1);
-          };
+            case 'en':
+              return 'Unknown error';
+            case 'ru':
+              return 'Неизвестная ошибка';
+
+          }
         }
-
       };
 
-    });
-}());
+      function parseError(e, lang) {
 
-(function () {
+        var data = e && e.data && e.data.length > 0 && e.data ||
+            [e]
+          ;
 
-  angular.module('sistemiumBootstrap.directives')
-    .directive('sabInputWithAddon', function () {
+        data.forEach (function (errObj) {
+          errors.push({
+            type: 'danger',
+            msg: errObj.message || errObj || msg.unknown(lang)
+          });
+        });
+
+      }
+
+      function addError(error) {
+        parseError(error);
+      }
+
+      function clearErrors() {
+        errors.splice(0, errors.length);
+      }
+
       return {
 
-        restrict: 'AC',
-        template: '' +
-        '<div class="input-group">' +
-        '<div class="input-group-btn" uib-dropdown is-open="vm.isOpen">' +
-        '<button class="button btn btn-default" type="button" uib-dropdown-toggle>{{sabSelectModel[sabLabelProp]}} ' +
-        '<span class="caret"></span>' +
-        '</button>' +
-        '<ul class="dropdown-menu">' +
-        '<li ng-repeat="item in sabSelectOptions">' +
-        '<a href="" ng-click="vm.setActiveItem(item)">{{item[sabLabelProp]}}</a>' +
-        '</li>' +
-        '</ul>' +
-        '<input class="form-control" ng-model="sabInputModel" type="number" ng-required="required"/>',
-        replace: true,
-        scope: {
-          sabSelectModel: '=',
-          sabInputModel: '=',
-          sabLabelProp: '@',
-          sabValueProp: '@',
-          sabSelectOptions: '=',
-          required: '@'
-        },
+        addError: addError,
+        clear: clearErrors,
+        errors: errors,
 
-        controller: function ($scope) {
-
-          var vm = this;
-          vm.setActiveItem = function (item) {
-            $scope.saSelectModel = item;
-          };
-
-        },
-        controllerAs: 'vm'
+        ru: {
+          add: function (error) {
+            parseError(error, 'ru');
+          }
+        }
 
       };
     })
   ;
 
-})();
+}());
 
 
 (function () {
@@ -226,3 +215,64 @@
     });
 
 }());
+
+(function () {
+
+  angular.module('sistemiumBootstrap.directives')
+    .directive('sabErrorWidget', function () {
+
+      return {
+
+        restrict: 'AC',
+        templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget.html',
+        controllerAs: 'dm',
+
+        controller: function (sabErrors) {
+          var dm = this;
+          dm.errors =  sabErrors.errors;
+          dm.closeError = function (index) {
+            dm.errors.splice(index, 1);
+          };
+        }
+
+      };
+
+    });
+}());
+
+(function () {
+
+  angular.module('sistemiumBootstrap.directives')
+    .directive('sabInputWithAddon', function () {
+      return {
+
+        restrict: 'AC',
+        templateUrl: 'sistemium-angular-bootstrap/directives/sabInputWithAddon.html',
+        replace: true,
+        scope: {
+          sabSelectModel: '=',
+          sabInputModel: '=',
+          sabLabelProp: '@',
+          sabValueProp: '@',
+          sabSelectOptions: '=',
+          required: '@'
+        },
+
+        controller: function ($scope) {
+
+          var vm = this;
+          vm.setActiveItem = function (item) {
+            $scope.sabSelectModel = item;
+          };
+
+        },
+        controllerAs: 'vm'
+
+      };
+    })
+  ;
+
+})();
+
+(function(){angular.module("sistemiumBootstrap").run(["$templateCache", function($templateCache) {$templateCache.put("sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html","<div ng-show=\"dm.errors.length\"><uib-alert ng-repeat=\"error in dm.errors\" type=\"{{error.type}}\" close=\"dm.closeError($index)\">{{error.msg}}</uib-alert></div>");
+$templateCache.put("sistemium-angular-bootstrap/directives/sabInputWithAddon/sabInputWithAddon.html","<div class=\"input-group\"><div uib-dropdown=\"uib-dropdown\" is-open=\"vm.isOpen\" class=\"input-group-btn\"><button type=\"button\" uib-dropdown-toggle=\"uib-dropdown-toggle\" class=\"btn btn-default\">{{sabSelectModel[sabLabelProp]}}</button> <span class=\"caret\"></span><ul class=\"dropdown-menu\"><li ng-repeat=\"item in sabSelectOptions\"><a href=\"\" ng-click=\"vm.setActiveItem(item)\">{{item[sabLabelProp]}}</a></li></ul></div><input ng-model=\"sabInputModel\" type=\"number\" ng-required=\"required\" class=\"form-control\"/></div>");}]);})();
