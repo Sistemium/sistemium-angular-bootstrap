@@ -9,6 +9,7 @@
 # Ignore node stuff
 node_modules/
 .tmp/
+docs/
 npm-debug.log
 libpeerconnection.log
 
