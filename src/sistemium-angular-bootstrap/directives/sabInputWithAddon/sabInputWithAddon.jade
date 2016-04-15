@@ -1,7 +1,7 @@
 .input-group
   .input-group-btn(uib-dropdown is-open='vm.isOpen')
     button.btn.btn-default(type='button' uib-dropdown-toggle) {{sabSelectModel[sabLabelProp]}}
-    = ' '
+      = ' '
       span.caret
     ul.dropdown-menu
       li(ng-repeat='item in sabSelectOptions')

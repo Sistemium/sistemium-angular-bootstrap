@@ -6,7 +6,7 @@
       return {
 
         restrict: 'AC',
-        templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget.html',
+        templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
         controllerAs: 'dm',
 
         controller: function (sabErrors) {

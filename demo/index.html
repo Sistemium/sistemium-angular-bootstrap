@@ -3,14 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Sistemium library for bootstrap directives</title>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.1/ui-bootstrap.min.js"></script>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="../bower_components/ng-table/dist/ng-table.min.js"></script>
   <script src="../dist/sistemium-angular-bootstrap.js"></script>
   <script src="assets/app.js"></script>
 
   <link rel="stylesheet" href="../dist/sistemium-angular-bootstrap.css">
 </head>
-<body class="ng-cloak" ng-controller="MainCtrl">
-  <div sab-input-with-addon></div>
+<body class="ng-cloak" ng-controller="MainCtrl as vm">
+  <div class="container">
+    <h1>Example for sab-input-with-addon</h1>
+    <div sab-input-with-addon
+         sab-input-model="vm.inputModel"
+         sab-select-model="vm.selectModel"
+         sab-select-options="vm.selectOptions"
+         sab-label-prop="value"
+         sab-value-prop="id"
+    ></div>
+
+    <h1>Example for sab-error-widget</h1>
+    <div sab-error-widget></div>
+
+    <button class="btn btn-default" ng-click="vm.addError()">Add error</button>
+
+  </div>
 </body>
 </html>

@@ -224,7 +224,7 @@
       return {
 
         restrict: 'AC',
-        templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget.html',
+        templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
         controllerAs: 'dm',
 
         controller: function (sabErrors) {
@@ -247,7 +247,7 @@
       return {
 
         restrict: 'AC',
-        templateUrl: 'sistemium-angular-bootstrap/directives/sabInputWithAddon.html',
+        templateUrl: 'sistemium-angular-bootstrap/directives/sabInputWithAddon/sabInputWithAddon.html',
         replace: true,
         scope: {
           sabSelectModel: '=',

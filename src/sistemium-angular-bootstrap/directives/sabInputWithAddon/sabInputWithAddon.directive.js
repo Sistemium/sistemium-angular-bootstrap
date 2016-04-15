@@ -5,7 +5,7 @@
       return {
 
         restrict: 'AC',
-        templateUrl: 'sistemium-angular-bootstrap/directives/sabInputWithAddon.html',
+        templateUrl: 'sistemium-angular-bootstrap/directives/sabInputWithAddon/sabInputWithAddon.html',
         replace: true,
         scope: {
           sabSelectModel: '=',
