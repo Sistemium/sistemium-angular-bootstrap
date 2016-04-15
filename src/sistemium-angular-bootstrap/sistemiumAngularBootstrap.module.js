@@ -14,7 +14,8 @@
 
   // Modules
   angular.module('sistemiumBootstrap.dependencies', [
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngTable'
   ]);
   angular.module('sistemiumBootstrap.directives', []);
   angular.module('sistemiumBootstrap.filters', []);

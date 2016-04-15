@@ -30,7 +30,13 @@ gulp.task('fonts', function () {
  * Process
  */
 gulp.task('process-all', function (done) {
-  runSequence('jshint', 'test-src', 'fonts', 'styles', 'build', done);
+  runSequence(
+    'jshint',
+    'test-src',
+    'fonts',
+    'styles',
+    'build',
+    done);
 });
 
 /**
