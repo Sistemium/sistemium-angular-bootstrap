@@ -8,14 +8,33 @@ var conf = require('./conf');
 var runSequence = require('run-sequence');
 var path = require('path');
 
-gulp.task('build', function() {
-  return gulp.src(conf.files.sourceFiles)
+gulp.task('concat', function () {
+  var src = conf.files.sourceFiles.concat([path.join(conf.paths.tmp, '/partials/templateCacheHtml.js')]);
+  return gulp.src(src)
     .pipe($.plumber())
     .pipe($.concat('sistemium-angular-bootstrap.js'))
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
     .pipe($.uglify())
     .pipe($.rename('sistemium-angular-bootstrap.min.js'))
     .pipe(gulp.dest(conf.paths.dist));
+});
+
+gulp.task('html', ['partials'], function () {
+
+  return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
+});
+
+gulp.task('partials', ['markups'], function () {
+  return gulp.src([
+      path.join(conf.paths.tmp, '/**/*.html')
+    ])
+    .pipe($.angularTemplatecache('templateCacheHtml.js', {
+      module: 'sistemiumBootstrap',
+      root: '',
+      moduleSystem: 'IIFE'
+    }))
+    .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
 
 /**
@@ -31,11 +50,8 @@ gulp.task('fonts', function () {
  */
 gulp.task('process-all', function (done) {
   runSequence(
-    'jshint',
-    'test-src',
-    'fonts',
-    'styles',
-    'build',
+    ['jshint', 'test-src', 'fonts', 'styles', 'html'],
+    'concat',
     done);
 });
 
