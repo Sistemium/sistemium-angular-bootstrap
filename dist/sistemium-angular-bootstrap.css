@@ -5924,6 +5924,22 @@ a {
 a:hover, a:focus {
   color: #3a7496; }
 
+.iOS .table-hover > tbody tr:hover {
+  background: none; }
+
+.iOS .table-hover > tbody tr:hover > td {
+  background: none; }
+
+.iOS .table-hover > tbody > tr:active {
+  background: none; }
+
+.iOS .hidden-iOS {
+  display: none; }
+
+.iOS, .iOS section, .iOS div, .iOS p, .iOS h1, .iOS h2, .iOS h3, .iOS h4, .iOS h5, .iOS h6, .iOS span, .iOS label, .iOS td, .iOS th, .iOS tr {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; }
+
 .white {
   color: white; }
 
