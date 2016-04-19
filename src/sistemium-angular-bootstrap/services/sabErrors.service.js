@@ -1,7 +1,7 @@
 (function () {
 
   angular.module('sistemiumBootstrap.services')
-    .service('sabErrors', function () {
+    .service('sabErrorsService', function () {
 
       var errors = [];
 

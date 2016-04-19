@@ -34,7 +34,7 @@
 (function () {
 
   angular.module('sistemiumBootstrap.services')
-    .service('sabErrors', function () {
+    .service('sabErrorsService', function () {
 
       var errors = [];
 
@@ -227,9 +227,9 @@
         templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
         controllerAs: 'dm',
 
-        controller: function (sabErrors) {
+        controller: function (sabErrorsService) {
           var dm = this;
-          dm.errors =  sabErrors.errors;
+          dm.errors =  sabErrorsService.errors;
           dm.closeError = function (index) {
             dm.errors.splice(index, 1);
           };
