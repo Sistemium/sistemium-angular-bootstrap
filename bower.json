@@ -36,6 +36,7 @@
     "angular-mocks": ">=1.2.0",
     "angular-scenario": ">=1.2.0",
     "angular": ">=1.2.0",
-    "lodash": "^4.11.1"
+    "lodash": "^4.11.1",
+    "sistemium-angular": "^0.2.0"
   }
 }
