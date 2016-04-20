@@ -5924,6 +5924,15 @@ a {
 a:hover, a:focus {
   color: #3a7496; }
 
+.ml-em {
+  margin-left: 1em; }
+
+.ml-15 {
+  margin-left: 15px; }
+
+.ml-10 {
+  margin-left: 10px; }
+
 .iOS .table-hover > tbody tr:hover {
   background: none; }
 
