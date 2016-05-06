@@ -38,5 +38,10 @@
     "angular": ">=1.2.0",
     "lodash": "^4.11.1",
     "sistemium-angular": "^0.2.0"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": "../../src/sistemium-angular-bootstrap/bootstrap/_bootstrap.scss"
+    }
   }
 }
