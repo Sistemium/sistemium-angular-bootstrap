@@ -5926,6 +5926,9 @@ a:hover, a:focus {
 .ml-10 {
   margin-left: 10px; }
 
+.ml-5 {
+  margin-left: 5px; }
+
 .iOS .table-hover > tbody tr:hover {
   background: none; }
 
