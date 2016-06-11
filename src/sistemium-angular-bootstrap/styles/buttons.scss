@@ -1,0 +1,59 @@
+.iOS {
+  .btn.btn-default {
+
+    &,
+    &:active,
+    &.active {
+      &:focus,
+      &.focus {
+        @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+      }
+      &.green {
+        color: green;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &.focus {
+      @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+      &.green {
+        color: green;
+      }
+    }
+
+    &:active,
+    &.active {
+      outline: 0;
+      @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+      &.green {
+        color: green;
+      }
+    }
+
+  }
+  .btn.btn-primary {
+
+    &,
+    &:active,
+    &.active {
+      &:focus,
+      &.focus {
+        @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &.focus {
+      @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    }
+
+    &:active,
+    &.active {
+      outline: 0;
+      @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    }
+
+  }
+}
