@@ -5862,8 +5862,397 @@ li.animate-show.ng-hide-add, li.animate-show.ng-hide-remove {
   50% {
     border-color: blue; } }
 
+.blink-color {
+  -webkit-animation: blink-color 1s linear 0s infinite;
+  -moz-animation: blink-color 1s linear 0s infinite;
+  -ms-animation: blink-color 1s linear 0s infinite;
+  -o-animation: blink-color 1s linear 0s infinite; }
+
+@-webkit-keyframes blink-color {
+  from, to {
+    color: transparent; }
+  50% {
+    color: red; } }
+
+@-moz-keyframes blink-color {
+  from, to {
+    color: transparent; }
+  50% {
+    color: red; } }
+
+@-ms-keyframes blink-color {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: red; } }
+
+@-o-keyframes blink-color {
+  from, to {
+    color: transparent; }
+  50% {
+    color: red; } }
+
 .input-group-btn .btn {
   height: 34px; }
+
+.iOS .btn.btn-default:focus, .iOS .btn.btn-default.focus, .iOS .btn.btn-default:active:focus, .iOS .btn.btn-default:active.focus, .iOS .btn.btn-default.active:focus, .iOS .btn.btn-default.active.focus {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc; }
+  .iOS .btn.btn-default:focus:focus, .iOS .btn.btn-default:focus.focus, .iOS .btn.btn-default.focus:focus, .iOS .btn.btn-default.focus.focus, .iOS .btn.btn-default:active:focus:focus, .iOS .btn.btn-default:active:focus.focus, .iOS .btn.btn-default:active.focus:focus, .iOS .btn.btn-default:active.focus.focus, .iOS .btn.btn-default.active:focus:focus, .iOS .btn.btn-default.active:focus.focus, .iOS .btn.btn-default.active.focus:focus, .iOS .btn.btn-default.active.focus.focus {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c; }
+  .iOS .btn.btn-default:focus:hover, .iOS .btn.btn-default.focus:hover, .iOS .btn.btn-default:active:focus:hover, .iOS .btn.btn-default:active.focus:hover, .iOS .btn.btn-default.active:focus:hover, .iOS .btn.btn-default.active.focus:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+  .iOS .btn.btn-default:focus:active, .iOS .btn.btn-default:focus.active,
+  .open > .iOS .btn.btn-default:focus.dropdown-toggle, .iOS .btn.btn-default.focus:active, .iOS .btn.btn-default.focus.active,
+  .open > .iOS .btn.btn-default.focus.dropdown-toggle, .iOS .btn.btn-default:active:focus:active, .iOS .btn.btn-default:active:focus.active,
+  .open > .iOS .btn.btn-default:active:focus.dropdown-toggle, .iOS .btn.btn-default:active.focus:active, .iOS .btn.btn-default:active.focus.active,
+  .open > .iOS .btn.btn-default:active.focus.dropdown-toggle, .iOS .btn.btn-default.active:focus:active, .iOS .btn.btn-default.active:focus.active,
+  .open > .iOS .btn.btn-default.active:focus.dropdown-toggle, .iOS .btn.btn-default.active.focus:active, .iOS .btn.btn-default.active.focus.active,
+  .open > .iOS .btn.btn-default.active.focus.dropdown-toggle {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+    .iOS .btn.btn-default:focus:active:hover, .iOS .btn.btn-default:focus:active:focus, .iOS .btn.btn-default:focus:active.focus, .iOS .btn.btn-default:focus.active:hover, .iOS .btn.btn-default:focus.active:focus, .iOS .btn.btn-default:focus.active.focus,
+    .open > .iOS .btn.btn-default:focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default:focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default:focus.dropdown-toggle.focus, .iOS .btn.btn-default.focus:active:hover, .iOS .btn.btn-default.focus:active:focus, .iOS .btn.btn-default.focus:active.focus, .iOS .btn.btn-default.focus.active:hover, .iOS .btn.btn-default.focus.active:focus, .iOS .btn.btn-default.focus.active.focus,
+    .open > .iOS .btn.btn-default.focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default.focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default.focus.dropdown-toggle.focus, .iOS .btn.btn-default:active:focus:active:hover, .iOS .btn.btn-default:active:focus:active:focus, .iOS .btn.btn-default:active:focus:active.focus, .iOS .btn.btn-default:active:focus.active:hover, .iOS .btn.btn-default:active:focus.active:focus, .iOS .btn.btn-default:active:focus.active.focus,
+    .open > .iOS .btn.btn-default:active:focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default:active:focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default:active:focus.dropdown-toggle.focus, .iOS .btn.btn-default:active.focus:active:hover, .iOS .btn.btn-default:active.focus:active:focus, .iOS .btn.btn-default:active.focus:active.focus, .iOS .btn.btn-default:active.focus.active:hover, .iOS .btn.btn-default:active.focus.active:focus, .iOS .btn.btn-default:active.focus.active.focus,
+    .open > .iOS .btn.btn-default:active.focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default:active.focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default:active.focus.dropdown-toggle.focus, .iOS .btn.btn-default.active:focus:active:hover, .iOS .btn.btn-default.active:focus:active:focus, .iOS .btn.btn-default.active:focus:active.focus, .iOS .btn.btn-default.active:focus.active:hover, .iOS .btn.btn-default.active:focus.active:focus, .iOS .btn.btn-default.active:focus.active.focus,
+    .open > .iOS .btn.btn-default.active:focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default.active:focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default.active:focus.dropdown-toggle.focus, .iOS .btn.btn-default.active.focus:active:hover, .iOS .btn.btn-default.active.focus:active:focus, .iOS .btn.btn-default.active.focus:active.focus, .iOS .btn.btn-default.active.focus.active:hover, .iOS .btn.btn-default.active.focus.active:focus, .iOS .btn.btn-default.active.focus.active.focus,
+    .open > .iOS .btn.btn-default.active.focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default.active.focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default.active.focus.dropdown-toggle.focus {
+      color: #333;
+      background-color: #d4d4d4;
+      border-color: #8c8c8c; }
+  .iOS .btn.btn-default:focus:active, .iOS .btn.btn-default:focus.active,
+  .open > .iOS .btn.btn-default:focus.dropdown-toggle, .iOS .btn.btn-default.focus:active, .iOS .btn.btn-default.focus.active,
+  .open > .iOS .btn.btn-default.focus.dropdown-toggle, .iOS .btn.btn-default:active:focus:active, .iOS .btn.btn-default:active:focus.active,
+  .open > .iOS .btn.btn-default:active:focus.dropdown-toggle, .iOS .btn.btn-default:active.focus:active, .iOS .btn.btn-default:active.focus.active,
+  .open > .iOS .btn.btn-default:active.focus.dropdown-toggle, .iOS .btn.btn-default.active:focus:active, .iOS .btn.btn-default.active:focus.active,
+  .open > .iOS .btn.btn-default.active:focus.dropdown-toggle, .iOS .btn.btn-default.active.focus:active, .iOS .btn.btn-default.active.focus.active,
+  .open > .iOS .btn.btn-default.active.focus.dropdown-toggle {
+    background-image: none; }
+  .iOS .btn.btn-default:focus.disabled:hover, .iOS .btn.btn-default:focus.disabled:focus, .iOS .btn.btn-default:focus.disabled.focus, .iOS .btn.btn-default:focus[disabled]:hover, .iOS .btn.btn-default:focus[disabled]:focus, .iOS .btn.btn-default:focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default:focus:hover,
+  fieldset[disabled] .iOS .btn.btn-default:focus:focus,
+  fieldset[disabled] .iOS .btn.btn-default:focus.focus, .iOS .btn.btn-default.focus.disabled:hover, .iOS .btn.btn-default.focus.disabled:focus, .iOS .btn.btn-default.focus.disabled.focus, .iOS .btn.btn-default.focus[disabled]:hover, .iOS .btn.btn-default.focus[disabled]:focus, .iOS .btn.btn-default.focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default.focus:hover,
+  fieldset[disabled] .iOS .btn.btn-default.focus:focus,
+  fieldset[disabled] .iOS .btn.btn-default.focus.focus, .iOS .btn.btn-default:active:focus.disabled:hover, .iOS .btn.btn-default:active:focus.disabled:focus, .iOS .btn.btn-default:active:focus.disabled.focus, .iOS .btn.btn-default:active:focus[disabled]:hover, .iOS .btn.btn-default:active:focus[disabled]:focus, .iOS .btn.btn-default:active:focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default:active:focus:hover,
+  fieldset[disabled] .iOS .btn.btn-default:active:focus:focus,
+  fieldset[disabled] .iOS .btn.btn-default:active:focus.focus, .iOS .btn.btn-default:active.focus.disabled:hover, .iOS .btn.btn-default:active.focus.disabled:focus, .iOS .btn.btn-default:active.focus.disabled.focus, .iOS .btn.btn-default:active.focus[disabled]:hover, .iOS .btn.btn-default:active.focus[disabled]:focus, .iOS .btn.btn-default:active.focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default:active.focus:hover,
+  fieldset[disabled] .iOS .btn.btn-default:active.focus:focus,
+  fieldset[disabled] .iOS .btn.btn-default:active.focus.focus, .iOS .btn.btn-default.active:focus.disabled:hover, .iOS .btn.btn-default.active:focus.disabled:focus, .iOS .btn.btn-default.active:focus.disabled.focus, .iOS .btn.btn-default.active:focus[disabled]:hover, .iOS .btn.btn-default.active:focus[disabled]:focus, .iOS .btn.btn-default.active:focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default.active:focus:hover,
+  fieldset[disabled] .iOS .btn.btn-default.active:focus:focus,
+  fieldset[disabled] .iOS .btn.btn-default.active:focus.focus, .iOS .btn.btn-default.active.focus.disabled:hover, .iOS .btn.btn-default.active.focus.disabled:focus, .iOS .btn.btn-default.active.focus.disabled.focus, .iOS .btn.btn-default.active.focus[disabled]:hover, .iOS .btn.btn-default.active.focus[disabled]:focus, .iOS .btn.btn-default.active.focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default.active.focus:hover,
+  fieldset[disabled] .iOS .btn.btn-default.active.focus:focus,
+  fieldset[disabled] .iOS .btn.btn-default.active.focus.focus {
+    background-color: #fff;
+    border-color: #ccc; }
+  .iOS .btn.btn-default:focus .badge, .iOS .btn.btn-default.focus .badge, .iOS .btn.btn-default:active:focus .badge, .iOS .btn.btn-default:active.focus .badge, .iOS .btn.btn-default.active:focus .badge, .iOS .btn.btn-default.active.focus .badge {
+    color: #fff;
+    background-color: #333; }
+
+.iOS .btn.btn-default.green, .iOS .btn.btn-default:active.green, .iOS .btn.btn-default.active.green {
+  color: green; }
+
+.iOS .btn.btn-default:hover, .iOS .btn.btn-default:focus, .iOS .btn.btn-default.focus {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc; }
+  .iOS .btn.btn-default:hover:focus, .iOS .btn.btn-default:hover.focus, .iOS .btn.btn-default:focus:focus, .iOS .btn.btn-default:focus.focus, .iOS .btn.btn-default.focus:focus, .iOS .btn.btn-default.focus.focus {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c; }
+  .iOS .btn.btn-default:hover:hover, .iOS .btn.btn-default:focus:hover, .iOS .btn.btn-default.focus:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+  .iOS .btn.btn-default:hover:active, .iOS .btn.btn-default:hover.active,
+  .open > .iOS .btn.btn-default:hover.dropdown-toggle, .iOS .btn.btn-default:focus:active, .iOS .btn.btn-default:focus.active,
+  .open > .iOS .btn.btn-default:focus.dropdown-toggle, .iOS .btn.btn-default.focus:active, .iOS .btn.btn-default.focus.active,
+  .open > .iOS .btn.btn-default.focus.dropdown-toggle {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+    .iOS .btn.btn-default:hover:active:hover, .iOS .btn.btn-default:hover:active:focus, .iOS .btn.btn-default:hover:active.focus, .iOS .btn.btn-default:hover.active:hover, .iOS .btn.btn-default:hover.active:focus, .iOS .btn.btn-default:hover.active.focus,
+    .open > .iOS .btn.btn-default:hover.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default:hover.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default:hover.dropdown-toggle.focus, .iOS .btn.btn-default:focus:active:hover, .iOS .btn.btn-default:focus:active:focus, .iOS .btn.btn-default:focus:active.focus, .iOS .btn.btn-default:focus.active:hover, .iOS .btn.btn-default:focus.active:focus, .iOS .btn.btn-default:focus.active.focus,
+    .open > .iOS .btn.btn-default:focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default:focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default:focus.dropdown-toggle.focus, .iOS .btn.btn-default.focus:active:hover, .iOS .btn.btn-default.focus:active:focus, .iOS .btn.btn-default.focus:active.focus, .iOS .btn.btn-default.focus.active:hover, .iOS .btn.btn-default.focus.active:focus, .iOS .btn.btn-default.focus.active.focus,
+    .open > .iOS .btn.btn-default.focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default.focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default.focus.dropdown-toggle.focus {
+      color: #333;
+      background-color: #d4d4d4;
+      border-color: #8c8c8c; }
+  .iOS .btn.btn-default:hover:active, .iOS .btn.btn-default:hover.active,
+  .open > .iOS .btn.btn-default:hover.dropdown-toggle, .iOS .btn.btn-default:focus:active, .iOS .btn.btn-default:focus.active,
+  .open > .iOS .btn.btn-default:focus.dropdown-toggle, .iOS .btn.btn-default.focus:active, .iOS .btn.btn-default.focus.active,
+  .open > .iOS .btn.btn-default.focus.dropdown-toggle {
+    background-image: none; }
+  .iOS .btn.btn-default:hover.disabled:hover, .iOS .btn.btn-default:hover.disabled:focus, .iOS .btn.btn-default:hover.disabled.focus, .iOS .btn.btn-default:hover[disabled]:hover, .iOS .btn.btn-default:hover[disabled]:focus, .iOS .btn.btn-default:hover[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default:hover:hover,
+  fieldset[disabled] .iOS .btn.btn-default:hover:focus,
+  fieldset[disabled] .iOS .btn.btn-default:hover.focus, .iOS .btn.btn-default:focus.disabled:hover, .iOS .btn.btn-default:focus.disabled:focus, .iOS .btn.btn-default:focus.disabled.focus, .iOS .btn.btn-default:focus[disabled]:hover, .iOS .btn.btn-default:focus[disabled]:focus, .iOS .btn.btn-default:focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default:focus:hover,
+  fieldset[disabled] .iOS .btn.btn-default:focus:focus,
+  fieldset[disabled] .iOS .btn.btn-default:focus.focus, .iOS .btn.btn-default.focus.disabled:hover, .iOS .btn.btn-default.focus.disabled:focus, .iOS .btn.btn-default.focus.disabled.focus, .iOS .btn.btn-default.focus[disabled]:hover, .iOS .btn.btn-default.focus[disabled]:focus, .iOS .btn.btn-default.focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default.focus:hover,
+  fieldset[disabled] .iOS .btn.btn-default.focus:focus,
+  fieldset[disabled] .iOS .btn.btn-default.focus.focus {
+    background-color: #fff;
+    border-color: #ccc; }
+  .iOS .btn.btn-default:hover .badge, .iOS .btn.btn-default:focus .badge, .iOS .btn.btn-default.focus .badge {
+    color: #fff;
+    background-color: #333; }
+  .iOS .btn.btn-default:hover.green, .iOS .btn.btn-default:focus.green, .iOS .btn.btn-default.focus.green {
+    color: green; }
+
+.iOS .btn.btn-default:active, .iOS .btn.btn-default.active {
+  outline: 0;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc; }
+  .iOS .btn.btn-default:active:focus, .iOS .btn.btn-default:active.focus, .iOS .btn.btn-default.active:focus, .iOS .btn.btn-default.active.focus {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c; }
+  .iOS .btn.btn-default:active:hover, .iOS .btn.btn-default.active:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+  .iOS .btn.btn-default:active:active, .iOS .btn.btn-default:active.active,
+  .open > .iOS .btn.btn-default:active.dropdown-toggle, .iOS .btn.btn-default.active:active, .iOS .btn.btn-default.active.active,
+  .open > .iOS .btn.btn-default.active.dropdown-toggle {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+    .iOS .btn.btn-default:active:active:hover, .iOS .btn.btn-default:active:active:focus, .iOS .btn.btn-default:active:active.focus, .iOS .btn.btn-default:active.active:hover, .iOS .btn.btn-default:active.active:focus, .iOS .btn.btn-default:active.active.focus,
+    .open > .iOS .btn.btn-default:active.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default:active.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default:active.dropdown-toggle.focus, .iOS .btn.btn-default.active:active:hover, .iOS .btn.btn-default.active:active:focus, .iOS .btn.btn-default.active:active.focus, .iOS .btn.btn-default.active.active:hover, .iOS .btn.btn-default.active.active:focus, .iOS .btn.btn-default.active.active.focus,
+    .open > .iOS .btn.btn-default.active.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-default.active.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-default.active.dropdown-toggle.focus {
+      color: #333;
+      background-color: #d4d4d4;
+      border-color: #8c8c8c; }
+  .iOS .btn.btn-default:active:active, .iOS .btn.btn-default:active.active,
+  .open > .iOS .btn.btn-default:active.dropdown-toggle, .iOS .btn.btn-default.active:active, .iOS .btn.btn-default.active.active,
+  .open > .iOS .btn.btn-default.active.dropdown-toggle {
+    background-image: none; }
+  .iOS .btn.btn-default:active.disabled:hover, .iOS .btn.btn-default:active.disabled:focus, .iOS .btn.btn-default:active.disabled.focus, .iOS .btn.btn-default:active[disabled]:hover, .iOS .btn.btn-default:active[disabled]:focus, .iOS .btn.btn-default:active[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default:active:hover,
+  fieldset[disabled] .iOS .btn.btn-default:active:focus,
+  fieldset[disabled] .iOS .btn.btn-default:active.focus, .iOS .btn.btn-default.active.disabled:hover, .iOS .btn.btn-default.active.disabled:focus, .iOS .btn.btn-default.active.disabled.focus, .iOS .btn.btn-default.active[disabled]:hover, .iOS .btn.btn-default.active[disabled]:focus, .iOS .btn.btn-default.active[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-default.active:hover,
+  fieldset[disabled] .iOS .btn.btn-default.active:focus,
+  fieldset[disabled] .iOS .btn.btn-default.active.focus {
+    background-color: #fff;
+    border-color: #ccc; }
+  .iOS .btn.btn-default:active .badge, .iOS .btn.btn-default.active .badge {
+    color: #fff;
+    background-color: #333; }
+  .iOS .btn.btn-default:active.green, .iOS .btn.btn-default.active.green {
+    color: green; }
+
+.iOS .btn.btn-primary:focus, .iOS .btn.btn-primary.focus, .iOS .btn.btn-primary:active:focus, .iOS .btn.btn-primary:active.focus, .iOS .btn.btn-primary.active:focus, .iOS .btn.btn-primary.active.focus {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4; }
+  .iOS .btn.btn-primary:focus:focus, .iOS .btn.btn-primary:focus.focus, .iOS .btn.btn-primary.focus:focus, .iOS .btn.btn-primary.focus.focus, .iOS .btn.btn-primary:active:focus:focus, .iOS .btn.btn-primary:active:focus.focus, .iOS .btn.btn-primary:active.focus:focus, .iOS .btn.btn-primary:active.focus.focus, .iOS .btn.btn-primary.active:focus:focus, .iOS .btn.btn-primary.active:focus.focus, .iOS .btn.btn-primary.active.focus:focus, .iOS .btn.btn-primary.active.focus.focus {
+    color: #fff;
+    background-color: #286090;
+    border-color: #122b40; }
+  .iOS .btn.btn-primary:focus:hover, .iOS .btn.btn-primary.focus:hover, .iOS .btn.btn-primary:active:focus:hover, .iOS .btn.btn-primary:active.focus:hover, .iOS .btn.btn-primary.active:focus:hover, .iOS .btn.btn-primary.active.focus:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74; }
+  .iOS .btn.btn-primary:focus:active, .iOS .btn.btn-primary:focus.active,
+  .open > .iOS .btn.btn-primary:focus.dropdown-toggle, .iOS .btn.btn-primary.focus:active, .iOS .btn.btn-primary.focus.active,
+  .open > .iOS .btn.btn-primary.focus.dropdown-toggle, .iOS .btn.btn-primary:active:focus:active, .iOS .btn.btn-primary:active:focus.active,
+  .open > .iOS .btn.btn-primary:active:focus.dropdown-toggle, .iOS .btn.btn-primary:active.focus:active, .iOS .btn.btn-primary:active.focus.active,
+  .open > .iOS .btn.btn-primary:active.focus.dropdown-toggle, .iOS .btn.btn-primary.active:focus:active, .iOS .btn.btn-primary.active:focus.active,
+  .open > .iOS .btn.btn-primary.active:focus.dropdown-toggle, .iOS .btn.btn-primary.active.focus:active, .iOS .btn.btn-primary.active.focus.active,
+  .open > .iOS .btn.btn-primary.active.focus.dropdown-toggle {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74; }
+    .iOS .btn.btn-primary:focus:active:hover, .iOS .btn.btn-primary:focus:active:focus, .iOS .btn.btn-primary:focus:active.focus, .iOS .btn.btn-primary:focus.active:hover, .iOS .btn.btn-primary:focus.active:focus, .iOS .btn.btn-primary:focus.active.focus,
+    .open > .iOS .btn.btn-primary:focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary:focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary:focus.dropdown-toggle.focus, .iOS .btn.btn-primary.focus:active:hover, .iOS .btn.btn-primary.focus:active:focus, .iOS .btn.btn-primary.focus:active.focus, .iOS .btn.btn-primary.focus.active:hover, .iOS .btn.btn-primary.focus.active:focus, .iOS .btn.btn-primary.focus.active.focus,
+    .open > .iOS .btn.btn-primary.focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary.focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary.focus.dropdown-toggle.focus, .iOS .btn.btn-primary:active:focus:active:hover, .iOS .btn.btn-primary:active:focus:active:focus, .iOS .btn.btn-primary:active:focus:active.focus, .iOS .btn.btn-primary:active:focus.active:hover, .iOS .btn.btn-primary:active:focus.active:focus, .iOS .btn.btn-primary:active:focus.active.focus,
+    .open > .iOS .btn.btn-primary:active:focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary:active:focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary:active:focus.dropdown-toggle.focus, .iOS .btn.btn-primary:active.focus:active:hover, .iOS .btn.btn-primary:active.focus:active:focus, .iOS .btn.btn-primary:active.focus:active.focus, .iOS .btn.btn-primary:active.focus.active:hover, .iOS .btn.btn-primary:active.focus.active:focus, .iOS .btn.btn-primary:active.focus.active.focus,
+    .open > .iOS .btn.btn-primary:active.focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary:active.focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary:active.focus.dropdown-toggle.focus, .iOS .btn.btn-primary.active:focus:active:hover, .iOS .btn.btn-primary.active:focus:active:focus, .iOS .btn.btn-primary.active:focus:active.focus, .iOS .btn.btn-primary.active:focus.active:hover, .iOS .btn.btn-primary.active:focus.active:focus, .iOS .btn.btn-primary.active:focus.active.focus,
+    .open > .iOS .btn.btn-primary.active:focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary.active:focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary.active:focus.dropdown-toggle.focus, .iOS .btn.btn-primary.active.focus:active:hover, .iOS .btn.btn-primary.active.focus:active:focus, .iOS .btn.btn-primary.active.focus:active.focus, .iOS .btn.btn-primary.active.focus.active:hover, .iOS .btn.btn-primary.active.focus.active:focus, .iOS .btn.btn-primary.active.focus.active.focus,
+    .open > .iOS .btn.btn-primary.active.focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary.active.focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary.active.focus.dropdown-toggle.focus {
+      color: #fff;
+      background-color: #204d74;
+      border-color: #122b40; }
+  .iOS .btn.btn-primary:focus:active, .iOS .btn.btn-primary:focus.active,
+  .open > .iOS .btn.btn-primary:focus.dropdown-toggle, .iOS .btn.btn-primary.focus:active, .iOS .btn.btn-primary.focus.active,
+  .open > .iOS .btn.btn-primary.focus.dropdown-toggle, .iOS .btn.btn-primary:active:focus:active, .iOS .btn.btn-primary:active:focus.active,
+  .open > .iOS .btn.btn-primary:active:focus.dropdown-toggle, .iOS .btn.btn-primary:active.focus:active, .iOS .btn.btn-primary:active.focus.active,
+  .open > .iOS .btn.btn-primary:active.focus.dropdown-toggle, .iOS .btn.btn-primary.active:focus:active, .iOS .btn.btn-primary.active:focus.active,
+  .open > .iOS .btn.btn-primary.active:focus.dropdown-toggle, .iOS .btn.btn-primary.active.focus:active, .iOS .btn.btn-primary.active.focus.active,
+  .open > .iOS .btn.btn-primary.active.focus.dropdown-toggle {
+    background-image: none; }
+  .iOS .btn.btn-primary:focus.disabled:hover, .iOS .btn.btn-primary:focus.disabled:focus, .iOS .btn.btn-primary:focus.disabled.focus, .iOS .btn.btn-primary:focus[disabled]:hover, .iOS .btn.btn-primary:focus[disabled]:focus, .iOS .btn.btn-primary:focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary:focus:hover,
+  fieldset[disabled] .iOS .btn.btn-primary:focus:focus,
+  fieldset[disabled] .iOS .btn.btn-primary:focus.focus, .iOS .btn.btn-primary.focus.disabled:hover, .iOS .btn.btn-primary.focus.disabled:focus, .iOS .btn.btn-primary.focus.disabled.focus, .iOS .btn.btn-primary.focus[disabled]:hover, .iOS .btn.btn-primary.focus[disabled]:focus, .iOS .btn.btn-primary.focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary.focus:hover,
+  fieldset[disabled] .iOS .btn.btn-primary.focus:focus,
+  fieldset[disabled] .iOS .btn.btn-primary.focus.focus, .iOS .btn.btn-primary:active:focus.disabled:hover, .iOS .btn.btn-primary:active:focus.disabled:focus, .iOS .btn.btn-primary:active:focus.disabled.focus, .iOS .btn.btn-primary:active:focus[disabled]:hover, .iOS .btn.btn-primary:active:focus[disabled]:focus, .iOS .btn.btn-primary:active:focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary:active:focus:hover,
+  fieldset[disabled] .iOS .btn.btn-primary:active:focus:focus,
+  fieldset[disabled] .iOS .btn.btn-primary:active:focus.focus, .iOS .btn.btn-primary:active.focus.disabled:hover, .iOS .btn.btn-primary:active.focus.disabled:focus, .iOS .btn.btn-primary:active.focus.disabled.focus, .iOS .btn.btn-primary:active.focus[disabled]:hover, .iOS .btn.btn-primary:active.focus[disabled]:focus, .iOS .btn.btn-primary:active.focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary:active.focus:hover,
+  fieldset[disabled] .iOS .btn.btn-primary:active.focus:focus,
+  fieldset[disabled] .iOS .btn.btn-primary:active.focus.focus, .iOS .btn.btn-primary.active:focus.disabled:hover, .iOS .btn.btn-primary.active:focus.disabled:focus, .iOS .btn.btn-primary.active:focus.disabled.focus, .iOS .btn.btn-primary.active:focus[disabled]:hover, .iOS .btn.btn-primary.active:focus[disabled]:focus, .iOS .btn.btn-primary.active:focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary.active:focus:hover,
+  fieldset[disabled] .iOS .btn.btn-primary.active:focus:focus,
+  fieldset[disabled] .iOS .btn.btn-primary.active:focus.focus, .iOS .btn.btn-primary.active.focus.disabled:hover, .iOS .btn.btn-primary.active.focus.disabled:focus, .iOS .btn.btn-primary.active.focus.disabled.focus, .iOS .btn.btn-primary.active.focus[disabled]:hover, .iOS .btn.btn-primary.active.focus[disabled]:focus, .iOS .btn.btn-primary.active.focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary.active.focus:hover,
+  fieldset[disabled] .iOS .btn.btn-primary.active.focus:focus,
+  fieldset[disabled] .iOS .btn.btn-primary.active.focus.focus {
+    background-color: #337ab7;
+    border-color: #2e6da4; }
+  .iOS .btn.btn-primary:focus .badge, .iOS .btn.btn-primary.focus .badge, .iOS .btn.btn-primary:active:focus .badge, .iOS .btn.btn-primary:active.focus .badge, .iOS .btn.btn-primary.active:focus .badge, .iOS .btn.btn-primary.active.focus .badge {
+    color: #337ab7;
+    background-color: #fff; }
+
+.iOS .btn.btn-primary:hover, .iOS .btn.btn-primary:focus, .iOS .btn.btn-primary.focus {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4; }
+  .iOS .btn.btn-primary:hover:focus, .iOS .btn.btn-primary:hover.focus, .iOS .btn.btn-primary:focus:focus, .iOS .btn.btn-primary:focus.focus, .iOS .btn.btn-primary.focus:focus, .iOS .btn.btn-primary.focus.focus {
+    color: #fff;
+    background-color: #286090;
+    border-color: #122b40; }
+  .iOS .btn.btn-primary:hover:hover, .iOS .btn.btn-primary:focus:hover, .iOS .btn.btn-primary.focus:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74; }
+  .iOS .btn.btn-primary:hover:active, .iOS .btn.btn-primary:hover.active,
+  .open > .iOS .btn.btn-primary:hover.dropdown-toggle, .iOS .btn.btn-primary:focus:active, .iOS .btn.btn-primary:focus.active,
+  .open > .iOS .btn.btn-primary:focus.dropdown-toggle, .iOS .btn.btn-primary.focus:active, .iOS .btn.btn-primary.focus.active,
+  .open > .iOS .btn.btn-primary.focus.dropdown-toggle {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74; }
+    .iOS .btn.btn-primary:hover:active:hover, .iOS .btn.btn-primary:hover:active:focus, .iOS .btn.btn-primary:hover:active.focus, .iOS .btn.btn-primary:hover.active:hover, .iOS .btn.btn-primary:hover.active:focus, .iOS .btn.btn-primary:hover.active.focus,
+    .open > .iOS .btn.btn-primary:hover.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary:hover.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary:hover.dropdown-toggle.focus, .iOS .btn.btn-primary:focus:active:hover, .iOS .btn.btn-primary:focus:active:focus, .iOS .btn.btn-primary:focus:active.focus, .iOS .btn.btn-primary:focus.active:hover, .iOS .btn.btn-primary:focus.active:focus, .iOS .btn.btn-primary:focus.active.focus,
+    .open > .iOS .btn.btn-primary:focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary:focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary:focus.dropdown-toggle.focus, .iOS .btn.btn-primary.focus:active:hover, .iOS .btn.btn-primary.focus:active:focus, .iOS .btn.btn-primary.focus:active.focus, .iOS .btn.btn-primary.focus.active:hover, .iOS .btn.btn-primary.focus.active:focus, .iOS .btn.btn-primary.focus.active.focus,
+    .open > .iOS .btn.btn-primary.focus.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary.focus.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary.focus.dropdown-toggle.focus {
+      color: #fff;
+      background-color: #204d74;
+      border-color: #122b40; }
+  .iOS .btn.btn-primary:hover:active, .iOS .btn.btn-primary:hover.active,
+  .open > .iOS .btn.btn-primary:hover.dropdown-toggle, .iOS .btn.btn-primary:focus:active, .iOS .btn.btn-primary:focus.active,
+  .open > .iOS .btn.btn-primary:focus.dropdown-toggle, .iOS .btn.btn-primary.focus:active, .iOS .btn.btn-primary.focus.active,
+  .open > .iOS .btn.btn-primary.focus.dropdown-toggle {
+    background-image: none; }
+  .iOS .btn.btn-primary:hover.disabled:hover, .iOS .btn.btn-primary:hover.disabled:focus, .iOS .btn.btn-primary:hover.disabled.focus, .iOS .btn.btn-primary:hover[disabled]:hover, .iOS .btn.btn-primary:hover[disabled]:focus, .iOS .btn.btn-primary:hover[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary:hover:hover,
+  fieldset[disabled] .iOS .btn.btn-primary:hover:focus,
+  fieldset[disabled] .iOS .btn.btn-primary:hover.focus, .iOS .btn.btn-primary:focus.disabled:hover, .iOS .btn.btn-primary:focus.disabled:focus, .iOS .btn.btn-primary:focus.disabled.focus, .iOS .btn.btn-primary:focus[disabled]:hover, .iOS .btn.btn-primary:focus[disabled]:focus, .iOS .btn.btn-primary:focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary:focus:hover,
+  fieldset[disabled] .iOS .btn.btn-primary:focus:focus,
+  fieldset[disabled] .iOS .btn.btn-primary:focus.focus, .iOS .btn.btn-primary.focus.disabled:hover, .iOS .btn.btn-primary.focus.disabled:focus, .iOS .btn.btn-primary.focus.disabled.focus, .iOS .btn.btn-primary.focus[disabled]:hover, .iOS .btn.btn-primary.focus[disabled]:focus, .iOS .btn.btn-primary.focus[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary.focus:hover,
+  fieldset[disabled] .iOS .btn.btn-primary.focus:focus,
+  fieldset[disabled] .iOS .btn.btn-primary.focus.focus {
+    background-color: #337ab7;
+    border-color: #2e6da4; }
+  .iOS .btn.btn-primary:hover .badge, .iOS .btn.btn-primary:focus .badge, .iOS .btn.btn-primary.focus .badge {
+    color: #337ab7;
+    background-color: #fff; }
+
+.iOS .btn.btn-primary:active, .iOS .btn.btn-primary.active {
+  outline: 0;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4; }
+  .iOS .btn.btn-primary:active:focus, .iOS .btn.btn-primary:active.focus, .iOS .btn.btn-primary.active:focus, .iOS .btn.btn-primary.active.focus {
+    color: #fff;
+    background-color: #286090;
+    border-color: #122b40; }
+  .iOS .btn.btn-primary:active:hover, .iOS .btn.btn-primary.active:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74; }
+  .iOS .btn.btn-primary:active:active, .iOS .btn.btn-primary:active.active,
+  .open > .iOS .btn.btn-primary:active.dropdown-toggle, .iOS .btn.btn-primary.active:active, .iOS .btn.btn-primary.active.active,
+  .open > .iOS .btn.btn-primary.active.dropdown-toggle {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74; }
+    .iOS .btn.btn-primary:active:active:hover, .iOS .btn.btn-primary:active:active:focus, .iOS .btn.btn-primary:active:active.focus, .iOS .btn.btn-primary:active.active:hover, .iOS .btn.btn-primary:active.active:focus, .iOS .btn.btn-primary:active.active.focus,
+    .open > .iOS .btn.btn-primary:active.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary:active.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary:active.dropdown-toggle.focus, .iOS .btn.btn-primary.active:active:hover, .iOS .btn.btn-primary.active:active:focus, .iOS .btn.btn-primary.active:active.focus, .iOS .btn.btn-primary.active.active:hover, .iOS .btn.btn-primary.active.active:focus, .iOS .btn.btn-primary.active.active.focus,
+    .open > .iOS .btn.btn-primary.active.dropdown-toggle:hover,
+    .open > .iOS .btn.btn-primary.active.dropdown-toggle:focus,
+    .open > .iOS .btn.btn-primary.active.dropdown-toggle.focus {
+      color: #fff;
+      background-color: #204d74;
+      border-color: #122b40; }
+  .iOS .btn.btn-primary:active:active, .iOS .btn.btn-primary:active.active,
+  .open > .iOS .btn.btn-primary:active.dropdown-toggle, .iOS .btn.btn-primary.active:active, .iOS .btn.btn-primary.active.active,
+  .open > .iOS .btn.btn-primary.active.dropdown-toggle {
+    background-image: none; }
+  .iOS .btn.btn-primary:active.disabled:hover, .iOS .btn.btn-primary:active.disabled:focus, .iOS .btn.btn-primary:active.disabled.focus, .iOS .btn.btn-primary:active[disabled]:hover, .iOS .btn.btn-primary:active[disabled]:focus, .iOS .btn.btn-primary:active[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary:active:hover,
+  fieldset[disabled] .iOS .btn.btn-primary:active:focus,
+  fieldset[disabled] .iOS .btn.btn-primary:active.focus, .iOS .btn.btn-primary.active.disabled:hover, .iOS .btn.btn-primary.active.disabled:focus, .iOS .btn.btn-primary.active.disabled.focus, .iOS .btn.btn-primary.active[disabled]:hover, .iOS .btn.btn-primary.active[disabled]:focus, .iOS .btn.btn-primary.active[disabled].focus,
+  fieldset[disabled] .iOS .btn.btn-primary.active:hover,
+  fieldset[disabled] .iOS .btn.btn-primary.active:focus,
+  fieldset[disabled] .iOS .btn.btn-primary.active.focus {
+    background-color: #337ab7;
+    border-color: #2e6da4; }
+  .iOS .btn.btn-primary:active .badge, .iOS .btn.btn-primary.active .badge {
+    color: #337ab7;
+    background-color: #fff; }
 
 .white {
   color: white; }
@@ -5944,6 +6333,9 @@ a:hover, a:focus {
 .iOS, .iOS section, .iOS div, .iOS p, .iOS h1, .iOS h2, .iOS h3, .iOS h4, .iOS h5, .iOS h6, .iOS span, .iOS label, .iOS td, .iOS th, .iOS tr {
   -webkit-touch-callout: none;
   -webkit-user-select: none; }
+
+.nav-tabs-right .nav-tabs > li {
+  float: right; }
 
 .white {
   color: white; }
