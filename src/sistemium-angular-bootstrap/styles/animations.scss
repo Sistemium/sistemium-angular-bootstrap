@@ -48,3 +48,35 @@ $blink-color: blue;
   from, to { border-color: transparent }
   50% { border-color: $blink-color }
 }
+
+
+.blink-color {
+
+  -webkit-animation: blink-color $blink-duration linear 0s infinite;
+  -moz-animation: blink-color $blink-duration linear 0s infinite;
+  -ms-animation: blink-color $blink-duration linear 0s infinite;
+  -o-animation: blink-color $blink-duration linear 0s infinite;
+
+}
+
+$blink-color-color: red;
+
+@-webkit-keyframes blink-color {
+  from, to { color: transparent }
+  50% { color: $blink-color-color }
+}
+
+@-moz-keyframes blink-color {
+  from, to { color: transparent }
+  50% { color: $blink-color-color }
+}
+
+@-ms-keyframes blink-color {
+  from, to { border-color: transparent }
+  50% { border-color: $blink-color-color }
+}
+
+@-o-keyframes blink-color {
+  from, to { color: transparent }
+  50% { color: $blink-color-color }
+}
