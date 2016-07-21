@@ -6278,6 +6278,15 @@ li.animate-show.ng-hide-add, li.animate-show.ng-hide-remove {
 .darkgray {
   color: #4F4F4F; }
 
+.black {
+  color: #333333; }
+
+body a.inherit-colors {
+  color: #4290d0; }
+  body a.inherit-colors:focus, body a.inherit-colors:hover, body a.inherit-colors:active {
+    color: #4290d0;
+    text-decoration: none; }
+
 .btn-primary {
   background-color: #4290d0;
   border-color: #258fbf; }
@@ -6318,6 +6327,12 @@ a:hover, a:focus {
 .ml-5 {
   margin-left: 5px; }
 
+.clear-right {
+  clear: right; }
+
+.clear-left {
+  clear: left; }
+
 .iOS .table-hover > tbody tr:hover {
   background: none; }
 
@@ -6333,6 +6348,33 @@ a:hover, a:focus {
 .iOS, .iOS section, .iOS div, .iOS p, .iOS h1, .iOS h2, .iOS h3, .iOS h4, .iOS h5, .iOS h6, .iOS span, .iOS label, .iOS td, .iOS th, .iOS tr {
   -webkit-touch-callout: none;
   -webkit-user-select: none; }
+
+.with-map .popover {
+  max-width: 440px;
+  min-width: 400px; }
+
+.popover-map {
+  width: 400px;
+  height: 300px;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; }
+  .popover-map .ya-map-container {
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; }
+
+@media (max-width: 320px) {
+  .with-map .popover {
+    max-width: 250px;
+    min-width: 100px; }
+  .popover-map {
+    width: 220px;
+    height: 270px; } }
 
 .nav-tabs-right .nav-tabs > li {
   float: right; }
@@ -6360,6 +6402,15 @@ a:hover, a:focus {
 
 .darkgray {
   color: #4F4F4F; }
+
+.black {
+  color: #333333; }
+
+body a.inherit-colors {
+  color: #4290d0; }
+  body a.inherit-colors:focus, body a.inherit-colors:hover, body a.inherit-colors:active {
+    color: #4290d0;
+    text-decoration: none; }
 
 .btn-primary {
   background-color: #4290d0;
