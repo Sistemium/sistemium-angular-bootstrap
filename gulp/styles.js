@@ -63,7 +63,7 @@ gulp.task('copy-styles', function () {
       directory: 'bower_components'
     })))
     .pipe($.replace('src/sistemium-angular-bootstrap/styles/', ''))
-    .pipe($.replace('../bower_components/bootstrap-sass/assets/fonts','fonts'))
+    .pipe($.replace('../bower_components/bootstrap-sass/assets/fonts','../bower_components/sistemium-angular-bootstrap/dist/fonts'))
     .pipe($.replace('bootstrap/_bootstrap.scss','_bootstrap.scss'))
     .pipe($.replace('../../../bower_components/bootstrap-sass', '../../bower_components/bootstrap-sass'))
     .pipe($.dest(':root/:name.scss',{root:'sass'}))
