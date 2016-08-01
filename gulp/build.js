@@ -14,8 +14,8 @@ gulp.task('concat', function () {
     .pipe($.plumber())
     .pipe($.concat('sistemium-angular-bootstrap.js'))
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
-    .pipe($.uglify())
-    .pipe($.rename('sistemium-angular-bootstrap.min.js'))
+    // .pipe($.uglify())
+    // .pipe($.rename('sistemium-angular-bootstrap.min.js'))
     .pipe(gulp.dest(conf.paths.dist));
 });
 

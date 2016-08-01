@@ -15,6 +15,7 @@
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-concat": "^2.3.4",
     "gulp-debug": "^2.1.2",
+    "gulp-dest": "^0.2.3",
     "gulp-inject": "^4.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-jsdoc3": "^0.2.1",
