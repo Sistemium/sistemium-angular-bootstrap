@@ -151,7 +151,7 @@
           var dataPromiseOrNothing = function () {
             var p = v4Params;
             if (!_.matches(p)(ctrl.lastFindAllParams) || !_.matches(ctrl.lastFindAllParams)(p)) {
-              return model.findAll(p, {bypassCache: true})
+              return model.findAll(p, {bypassCache: ctrl.bypassCache})
                 .then(function (data) {
                   if (setPage) {
                     params.page(setPage);
@@ -191,6 +191,8 @@
             counts.push(count);
             counts = _.sortBy(counts);
           }
+
+          ctrl.bypassCache = ctrl.bypassCache || angular.isUndefined(ctrl.bypassCache);
 
           ctrl.ngTableParams = new NgTableParams(angular.extend({
             page: 1,
