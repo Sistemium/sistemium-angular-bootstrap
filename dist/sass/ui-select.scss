@@ -1,0 +1,17 @@
+.ui-select-container.fixed-header {
+
+  .ui-select-choices {
+    padding-top: 34px;
+  }
+
+  .ui-select-header {
+    position: absolute;
+    top: 0;
+  }
+
+  .ui-select-header + .ui-select-choices-group {
+    max-height: 165px;
+    overflow-y: scroll;
+  }
+
+}
