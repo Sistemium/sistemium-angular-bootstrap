@@ -6153,67 +6153,6 @@ a:hover, a:focus {
 .nav-tabs-right .nav-tabs > li {
   float: right; }
 
-.white {
-  color: white; }
-
-.blue {
-  color: blue; }
-
-.red {
-  color: red; }
-
-.gray {
-  color: gray; }
-
-.yellow {
-  color: yellow; }
-
-.green {
-  color: green; }
-
-.darkred {
-  color: darkred; }
-
-.darkgray {
-  color: #4F4F4F; }
-
-.black {
-  color: #333333; }
-
-body a.inherit-colors {
-  color: #4290d0; }
-  body a.inherit-colors:focus, body a.inherit-colors:hover, body a.inherit-colors:active {
-    color: #4290d0;
-    text-decoration: none; }
-
-.btn-primary {
-  background-color: #4290d0;
-  border-color: #258fbf; }
-
-.table-hover > tbody tr:hover > td,
-.table-hover > tbody tr:hover > th {
-  background: rgba(56, 144, 208, 0.2); }
-
-.table-hover > tbody tr > td.active,
-.table-hover > tbody tr > th.active,
-.table-hover > tbody tr > .active,
-.table-hover > tbody tr.active > td,
-.table-hover > tbody tr.active > th {
-  background-color: rgba(56, 144, 208, 0.5); }
-
-.table-hover > tbody tr > td.active:hover,
-.table-hover > tbody tr > th.active:hover,
-.table-hover > tbody tr.active:hover > td,
-.table-hover > tbody tr:hover > .active,
-.table-hover > tbody tr.active:hover > th {
-  background-color: rgba(56, 144, 208, 0.5); }
-
-a {
-  color: #4290d0; }
-
-a:hover, a:focus {
-  color: #3a7496; }
-
 #toast-container .toast-title {
   margin-bottom: 5px; }
 
