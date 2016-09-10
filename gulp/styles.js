@@ -65,7 +65,7 @@ gulp.task('copy-styles', function () {
     .pipe($.replace('src/sistemium-angular-bootstrap/styles/', ''))
     .pipe($.replace('../bower_components/bootstrap-sass/assets/fonts','../bower_components/sistemium-angular-bootstrap/dist/fonts'))
     .pipe($.replace('bootstrap/_bootstrap.scss','_bootstrap.scss'))
-    .pipe($.replace('../../../bower_components/bootstrap-sass', '../../bower_components/bootstrap-sass'))
+    .pipe($.replace('../../../bower_components/bootstrap-sass', '../../../bootstrap-sass'))
     .pipe($.dest(':root/:name.scss',{root:'sass'}))
     .pipe(gulp.dest(path.join(distPath, '/sass')));
 });
