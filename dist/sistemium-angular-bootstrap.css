@@ -6113,8 +6113,11 @@ a:hover, a:focus {
 .iOS .table-hover > tbody tr:hover > td {
   background: none; }
 
-.iOS .table-hover > tbody > tr:active {
-  background: none; }
+.iOS .table-hover > tbody tr:hover > th.active,
+.iOS .table-hover > tbody tr:hover > .active,
+.iOS .table-hover > tbody tr.active:hover > td,
+.iOS .table-hover > tbody tr.active:hover > th {
+  background-color: rgba(56, 144, 208, 0.5); }
 
 .iOS .hidden-iOS {
   display: none; }

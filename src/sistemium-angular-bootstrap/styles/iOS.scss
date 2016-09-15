@@ -1,3 +1,5 @@
+@import "variables";
+
 .iOS {
 
   .table-hover > tbody {
@@ -10,11 +12,18 @@
       background: none;
     }
 
+    tr:hover > th.active,
+    tr:hover > .active,
+    tr.active:hover > td,
+    tr.active:hover > th {
+      background-color:  $primary-color-active;
+    }
+
   }
 
-  .table-hover > tbody > tr:active {
-    background: none;
-  }
+  //.table-hover > tbody > tr:active {
+  //  background: none;
+  //}
 
   .hidden-iOS {
     display: none;
