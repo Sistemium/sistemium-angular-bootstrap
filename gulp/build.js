@@ -50,7 +50,7 @@ gulp.task('fonts', function () {
  */
 gulp.task('process-all', function (done) {
   runSequence(
-    ['jshint', 'test-src', 'fonts', 'styles', 'html'],
+    ['jshint', 'fonts', 'styles', 'html'],
     'concat',
     done);
 });
