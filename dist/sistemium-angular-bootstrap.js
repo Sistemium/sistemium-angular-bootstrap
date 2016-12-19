@@ -16,7 +16,11 @@
   angular.module('sistemiumBootstrap.dependencies', [
     'ui.bootstrap',
     'ngTable'
-  ]);
+  ])
+    .config(['$uibTooltipProvider', function ($uibTooltipProvider) {
+      $uibTooltipProvider.options({trigger: 'outsideClick'});
+    }]);
+
   angular.module('sistemiumBootstrap.directives', []);
   angular.module('sistemiumBootstrap.filters', []);
   angular.module('sistemiumBootstrap.services', []);
