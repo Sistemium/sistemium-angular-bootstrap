@@ -28,16 +28,16 @@
     "**/.*"
   ],
   "dependencies": {
-    "angular-bootstrap": "~2.3.0",
+    "angular-bootstrap": "~2.5.0",
     "ng-table": "=1.0.0-beta.9",
     "bootstrap-sass": "^3.3.6",
     "lodash": "^4.12.0"
   },
   "devDependencies": {
-    "angular-mocks": ">=1.2.0",
-    "angular-scenario": ">=1.2.0",
-    "angular": ">=1.2.0",
-    "sistemium-angular": "^0.2.0"
+    "angular-mocks": "~1.6.3",
+    "angular-scenario": "~1.6.3",
+    "angular": "~1.6.3",
+    "sistemium-angular": "^0.8.0"
   },
   "overrides": {
     "bootstrap-sass": {
