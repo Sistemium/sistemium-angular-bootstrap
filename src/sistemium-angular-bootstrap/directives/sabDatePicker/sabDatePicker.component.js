@@ -9,7 +9,8 @@
         maxDate: '<',
         initDate: '<',
         customClass: '<',
-        clearText: '@'
+        clearText: '@',
+        options: '<'
       },
 
       templateUrl: 'sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html',
@@ -17,6 +18,8 @@
       controllerAs: 'vm'
 
     });
+
+  var ymdFormat = 'YYYY-MM-DD';
 
   function sabDatePickerController($scope) {
 
@@ -33,14 +36,15 @@
 
       vm.date = dateWithoutTime(vm.value);
 
-      vm.datepickerOptions = _.defaults({
+      vm.options = _.defaults({
         minDate: vm.minDate && dateWithoutTime(vm.minDate),
         maxDate: vm.maxDate && dateWithoutTime(vm.maxDate),
         initDate: vm.initDate,
         customClass: vm.customClass,
         showWeeks: false
-      }, $scope.datepickerOptions);
+      }, vm.options || {});
 
+      vm.datepickerOptions = _.defaults(vm.options, $scope.datepickerOptions);
 
       $scope.$watch('vm.value', function (nv, ov) {
 
@@ -56,7 +60,7 @@
         if (!nv) {
           vm.date = dateWithoutTime(vm.initDate);
         }
-        vm.value = moment(vm.date.toISOString()).format();
+        vm.value = moment(vm.date.toISOString()).format(ymdFormat);
 
       });
 
@@ -71,7 +75,7 @@
     }
 
     function dateWithoutTime(date) {
-      return moment(moment(date).format()).toDate();
+      return moment(moment(date).format(ymdFormat)).toDate();
     }
 
     function nextDayClick() {

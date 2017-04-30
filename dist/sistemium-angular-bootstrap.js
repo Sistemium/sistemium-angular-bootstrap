@@ -233,7 +233,8 @@
         maxDate: '<',
         initDate: '<',
         customClass: '<',
-        clearText: '@'
+        clearText: '@',
+        options: '<'
       },
 
       templateUrl: 'sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html',
@@ -241,6 +242,8 @@
       controllerAs: 'vm'
 
     });
+
+  var ymdFormat = 'YYYY-MM-DD';
 
   function sabDatePickerController($scope) {
 
@@ -257,14 +260,15 @@
 
       vm.date = dateWithoutTime(vm.value);
 
-      vm.datepickerOptions = _.defaults({
+      vm.options = _.defaults({
         minDate: vm.minDate && dateWithoutTime(vm.minDate),
         maxDate: vm.maxDate && dateWithoutTime(vm.maxDate),
         initDate: vm.initDate,
         customClass: vm.customClass,
         showWeeks: false
-      }, $scope.datepickerOptions);
+      }, vm.options || {});
 
+      vm.datepickerOptions = _.defaults(vm.options, $scope.datepickerOptions);
 
       $scope.$watch('vm.value', function (nv, ov) {
 
@@ -280,7 +284,7 @@
         if (!nv) {
           vm.date = dateWithoutTime(vm.initDate);
         }
-        vm.value = moment(vm.date.toISOString()).format();
+        vm.value = moment(vm.date.toISOString()).format(ymdFormat);
 
       });
 
@@ -295,7 +299,7 @@
     }
 
     function dateWithoutTime(date) {
-      return moment(moment(date).format()).toDate();
+      return moment(moment(date).format(ymdFormat)).toDate();
     }
 
     function nextDayClick() {
@@ -324,6 +328,30 @@
 
 
 })();
+
+(function () {
+
+  angular.module('sistemiumBootstrap.directives')
+    .directive('sabErrorWidget', function () {
+
+      return {
+
+        restrict: 'AC',
+        templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
+        controllerAs: 'dm',
+
+        controller: function (sabErrorsService) {
+          var dm = this;
+          dm.errors =  sabErrorsService.errors;
+          dm.closeError = function (index) {
+            dm.errors.splice(index, 1);
+          };
+        }
+
+      };
+
+    });
+}());
 
 (function () {
 
@@ -379,30 +407,6 @@
   ;
 
 })();
-
-(function () {
-
-  angular.module('sistemiumBootstrap.directives')
-    .directive('sabErrorWidget', function () {
-
-      return {
-
-        restrict: 'AC',
-        templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
-        controllerAs: 'dm',
-
-        controller: function (sabErrorsService) {
-          var dm = this;
-          dm.errors =  sabErrorsService.errors;
-          dm.closeError = function (index) {
-            dm.errors.splice(index, 1);
-          };
-        }
-
-      };
-
-    });
-}());
 
 (function(){angular.module("sistemiumBootstrap").run(["$templateCache", function($templateCache) {$templateCache.put("sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html","<div class=\"input-group\"><span class=\"input-group-btn\"><button ng-click=\"vm.prevDayClick()\" ng-disabled=\"vm.datepickerOptions.minDate &amp;&amp; vm.date &lt;= vm.datepickerOptions.minDate\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-chevron-left\"></i></button></span><span uib-datepicker-popup=\"uib-datepicker-popup\" ng-model=\"vm.date\" datepicker-options=\"vm.datepickerOptions\" is-open=\"datepickerPopupOpened\" datepicker-append-to-body=\"true\" no-show-button-bar=\"false\" on-open-focus=\"false\" ng-required=\"true\" current-text=\"false\" close-text=\"Закрыть\" clear-text=\"{{ vm.clearText }}\" ng-click=\"datepickerPopupOpened = !datepickerPopupOpened\" class=\"form-control text-center\">{{ vm.date | amDateFormat:\'DD/MM/YYYY, dd\' }}</span><span class=\"input-group-btn\"><button ng-click=\"vm.nextDayClick()\" ng-disabled=\"vm.datepickerOptions.maxDate &amp;&amp; vm.date &gt;= vm.datepickerOptions.maxDate\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-chevron-right\"></i></button></span></div>");
 $templateCache.put("sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html","<div ng-show=\"dm.errors.length\"><uib-alert ng-repeat=\"error in dm.errors\" type=\"{{error.type}}\" close=\"dm.closeError($index)\">{{error.msg}}</uib-alert></div>");
