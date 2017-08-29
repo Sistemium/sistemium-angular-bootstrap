@@ -281,10 +281,11 @@
 
       $scope.$watch('vm.date', function (nv) {
 
-        if (!nv) {
-          vm.date = dateWithoutTime(vm.initDate);
+        if (!nv || _.isDate(nv) && _.isNaN(nv.getTime())) {
+          vm.date = vm.initDate ? dateWithoutTime(vm.initDate) : null;
         }
-        vm.value = moment(vm.date.toISOString()).format(ymdFormat);
+
+        vm.value = vm.date ? moment(vm.date.toISOString()).format(ymdFormat) : null;
 
       });
 
