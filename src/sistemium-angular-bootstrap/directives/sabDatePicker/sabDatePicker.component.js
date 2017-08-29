@@ -10,6 +10,7 @@
         initDate: '<',
         customClass: '<',
         clearText: '@',
+        closeText: '@',
         options: '<'
       },
 
@@ -34,7 +35,7 @@
 
     function onInit() {
 
-      vm.date = dateWithoutTime(vm.value);
+      vm.date = vm.value ? dateWithoutTime(vm.value) : null;
 
       vm.options = _.defaults({
         minDate: vm.minDate && dateWithoutTime(vm.minDate),
@@ -51,13 +52,14 @@
         if (ov === nv) {
           return;
         }
-        vm.date = dateWithoutTime(vm.value);
+
+        vm.date = vm.value ? dateWithoutTime(vm.value) : null;
 
       });
 
       $scope.$watch('vm.date', function (nv) {
 
-        if (!nv || _.isDate(nv) && _.isNaN(nv.getTime())) {
+        if (!isValid(nv)) {
           vm.date = vm.initDate ? dateWithoutTime(vm.initDate) : null;
         }
 
@@ -73,6 +75,10 @@
 
       });
 
+    }
+
+    function isValid(date) {
+      return date && _.isDate(date) && !_.isNaN(date.getTime());
     }
 
     function dateWithoutTime(date) {

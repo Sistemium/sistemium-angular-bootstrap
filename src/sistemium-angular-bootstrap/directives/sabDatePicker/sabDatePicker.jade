@@ -17,7 +17,7 @@
   on-open-focus='false'
   ng-required='true'
   current-text='false'
-  close-text='Закрыть'
+  close-text='{{ vm.closeText }}'
   clear-text='{{ vm.clearText }}'
   ng-click='datepickerPopupOpened = !datepickerPopupOpened'
   ) {{ vm.date | amDateFormat:'DD/MM/YYYY, dd' }}
