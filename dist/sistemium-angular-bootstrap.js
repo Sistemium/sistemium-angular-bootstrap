@@ -310,11 +310,13 @@
     }
 
     function nextDayClick() {
-      setValidDate(moment(vm.date.toISOString()).add(1, 'day'));
+      var date = vm.date && moment(vm.date.toISOString()).add(1, 'day') || moment();
+      setValidDate(date);
     }
 
     function prevDayClick() {
-      setValidDate(moment(vm.date.toISOString()).add(-1, 'day'));
+      var date = vm.date && moment(vm.date.toISOString()).add(-1, 'day') || moment();
+      setValidDate(date);
     }
 
     function setValidDate(date) {
