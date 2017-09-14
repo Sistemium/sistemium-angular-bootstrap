@@ -1,0 +1,22 @@
+.input-group
+
+  input.form-control.text-center(
+  uib-datepicker-popup='yyyy-MM-dd'
+  ng-model='vm.date'
+  ng-class='{"invalid": !vm.date}'
+  datepicker-options='vm.datepickerOptions'
+  is-open='datepickerPopupOpened'
+  datepicker-append-to-body='true'
+  no-show-button-bar='false'
+  on-open-focus='false'
+  ng-required='true'
+  current-text='false'
+  close-text='{{ vm.closeText }}'
+  clear-text='{{ vm.clearText }}'
+  )
+
+  span.input-group-btn
+    button.btn.btn-default(
+    ng-click='datepickerPopupOpened = !datepickerPopupOpened'
+    )
+      i.glyphicon.glyphicon-calendar
