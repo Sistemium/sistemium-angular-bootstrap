@@ -2,8 +2,9 @@
 
   input.form-control.text-center(
   uib-datepicker-popup='yyyy-MM-dd'
-  ng-model='vm.date'
-  ng-class='{"invalid": !vm.date}'
+  alt-input-formats='vm.altInputFormats'
+  ng-model='vm.dateInput'
+  ng-class='{invalid: !vm.dateInputValid}'
   datepicker-options='vm.datepickerOptions'
   is-open='datepickerPopupOpened'
   datepicker-append-to-body='true'

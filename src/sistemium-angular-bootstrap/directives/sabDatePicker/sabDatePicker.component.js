@@ -1,24 +1,36 @@
 (function () {
 
+  var bindings = {
+    value: '=',
+    minDate: '<',
+    maxDate: '<',
+    initDate: '<',
+    customClass: '<',
+    clearText: '@',
+    closeText: '@',
+    options: '<'
+  };
+
   angular.module('sistemiumBootstrap.directives')
     .component('sabDatePicker', {
 
-      bindings: {
-        value: '=',
-        minDate: '<',
-        maxDate: '<',
-        initDate: '<',
-        customClass: '<',
-        clearText: '@',
-        closeText: '@',
-        options: '<'
-      },
+      bindings: bindings,
 
       templateUrl: 'sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html',
       controller: sabDatePickerController,
       controllerAs: 'vm'
 
-    });
+    })
+    .component('sabDatePickerInput', {
+
+      bindings: bindings,
+
+      templateUrl: 'sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePickerInput.html',
+      controller: sabDatePickerController,
+      controllerAs: 'vm'
+
+    })
+  ;
 
   var ymdFormat = 'YYYY-MM-DD';
 
@@ -37,6 +49,8 @@
 
       vm.date = vm.value ? dateWithoutTime(vm.value) : null;
 
+      vm.dateInputValid = true;
+
       vm.options = _.defaults({
         minDate: vm.minDate && dateWithoutTime(vm.minDate),
         maxDate: vm.maxDate && dateWithoutTime(vm.maxDate),
@@ -47,13 +61,26 @@
 
       vm.datepickerOptions = _.defaults(vm.options, $scope.datepickerOptions);
 
-      $scope.$watch('vm.value', function (nv, ov) {
+      vm.altInputFormats = ['yyyy/MM/dd', 'yyyy.MM.dd'];
 
-        if (ov === nv) {
+      $scope.$watch('vm.value', function () {
+
+        vm.date = vm.value ? dateWithoutTime(vm.value) : null;
+        vm.dateInput = vm.date;
+
+      });
+
+      $scope.$watch('vm.dateInput', function (dateInput, ov) {
+
+        if (dateInput === ov) {
           return;
         }
 
-        vm.date = vm.value ? dateWithoutTime(vm.value) : null;
+        vm.dateInputValid = isValid(dateInput);
+
+        if (vm.dateInputValid) {
+          vm.date = dateWithoutTime(dateInput);
+        }
 
       });
 
@@ -110,6 +137,5 @@
     }
 
   }
-
 
 })();
