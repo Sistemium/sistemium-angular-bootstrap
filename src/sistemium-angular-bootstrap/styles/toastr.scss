@@ -22,7 +22,7 @@ $shadow-hover: 0 0 $shadow-width+2 $shadow-color-hover;
   }
 
   .alert.alert-warning {
-    color: $state-warning-text;
+    color: darken($state-warning-text, 5%);
   }
 
   .alert.alert-success {
@@ -33,19 +33,19 @@ $shadow-hover: 0 0 $shadow-width+2 $shadow-color-hover;
     color: $state-danger-text;
   }
 
-  > div {
+  .toast {
+
     padding: 15px 15px 15px 20px;
-    -moz-box-shadow: $shadow;
-    -webkit-box-shadow: $shadow;
     box-shadow: $shadow;
     border: none;
+    opacity: 0.9;
+
+    &:hover, &:active, &:focus {
+      box-shadow: $shadow-hover;
+      outline: none;
+    }
+
   }
 
-  > :hover, > :active, > :focus {
-    -moz-box-shadow: $shadow-hover;
-    -webkit-box-shadow: $shadow-hover;
-    box-shadow: $shadow-hover;
-    outline: none;
-  }
 
 }

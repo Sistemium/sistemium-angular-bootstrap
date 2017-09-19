@@ -1073,6 +1073,7 @@ a {
     color: #23527c;
     text-decoration: underline; }
   a:focus {
+    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
 
@@ -2288,6 +2289,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
@@ -2801,6 +2803,7 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover, .btn:focus, .btn.focus {
@@ -6163,7 +6166,7 @@ a:hover, a:focus {
   color: #31708f; }
 
 #toast-container .alert.alert-warning {
-  color: #9a9a00; }
+  color: #818100; }
 
 #toast-container .alert.alert-success {
   color: #3c763d; }
@@ -6171,18 +6174,14 @@ a:hover, a:focus {
 #toast-container .alert.alert-danger {
   color: #a94442; }
 
-#toast-container > div {
+#toast-container .toast {
   padding: 15px 15px 15px 20px;
-  -moz-box-shadow: 0 0 6px #999999;
-  -webkit-box-shadow: 0 0 6px #999999;
   box-shadow: 0 0 6px #999999;
-  border: none; }
-
-#toast-container > :hover, #toast-container > :active, #toast-container > :focus {
-  -moz-box-shadow: 0 0 8px #777777;
-  -webkit-box-shadow: 0 0 8px #777777;
-  box-shadow: 0 0 8px #777777;
-  outline: none; }
+  border: none;
+  opacity: 0.9; }
+  #toast-container .toast:hover, #toast-container .toast:active, #toast-container .toast:focus {
+    box-shadow: 0 0 8px #777777;
+    outline: none; }
 
 .ui-select-container.fixed-header .ui-select-choices {
   padding-top: 34px; }
