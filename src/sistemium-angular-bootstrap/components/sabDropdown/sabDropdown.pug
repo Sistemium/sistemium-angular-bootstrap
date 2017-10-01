@@ -1,0 +1,35 @@
+.sab-dropdown(ng-hide='vm.newItem')
+
+  a(
+  href=''
+  uib-popover-template='"sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.template.html"'
+  popover-is-open='vm.isOpen'
+  popover-placement='{{vm.placement || "bottom-left"}}'
+  )
+    .name
+      span(
+      ng-if='vm.itemsGroupProperty && vm.currentItem'
+      ng-bind='vm.groupLabel(vm.currentItem)'
+      )
+      span {{ vm.currentItem[vm.itemsNameProperty] || vm.emptyText }}
+
+    span.caret
+
+  button-add(button-click='vm.addClick()' ng-if='vm.enableAdding')
+
+.edit-block(ng-if='vm.newItem')
+
+  .title
+
+    span {{ vm.newItemTitle }}
+
+    a.save.animate-show(
+    href='' ng-click='vm.saveClick($event)'
+    ng-show='vm.newItem.isValid()'
+    )
+      i.glyphicon.glyphicon-ok
+
+    a.cancel(href='' ng-click='vm.cancelClick($event)')
+      i.glyphicon.glyphicon-remove
+
+  transform-to-component(component-name='{{vm.editComponentName}}' instance='vm.newItem')

@@ -1,0 +1,31 @@
+.search-add(ng-hide='vm.newItem')
+
+  vfs-searcher.search(search='vm.search' ng-keydown='vm.onKeyDown($event)')
+
+  button-add(button-click='vm.addClick()' ng-if='vm.enableAdding')
+
+.scroll-y.sab-dropdown-items(
+vs-repeat='34'
+id='{{ vm.id }}'
+ng-if='vm.id'
+resize
+resize-offset-top='15'
+)
+
+  .sab-dropdown-item(
+  id='{{ item.id }}'
+  ng-repeat='item in vm.filteredData track by item.id'
+  ng-class='{active : !vm.focused && vm.currentItem.id === item.id, focused: vm.focused.id === item.id }'
+  ng-click='vm.itemClick(item)'
+  )
+    span(ng-if='vm.itemsGroupProperty') {{ vm.groupLabel(item) }}&nbsp;
+    span {{item[vm.itemsNameProperty]}}
+
+.no-results(ng-if='!vm.filteredData.length')
+  span(ng-if='vm.search') Подходящих данных нет
+  span(ng-if='!vm.search') Данных нет
+  span(ng-if='vm.enableAdding') , хотите
+  = ' '
+  a(href='' ng-if='vm.enableAdding' ng-click='$event.stopPropagation();vm.addClick($event)') добавить
+  = ' '
+  span(ng-if='vm.enableAdding') новую запись?

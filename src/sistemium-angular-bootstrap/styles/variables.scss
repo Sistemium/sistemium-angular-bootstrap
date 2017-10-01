@@ -1,6 +1,14 @@
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss";
 
 $sab-blue: #3a7496;
+$border-gray: #eee;
+$box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+$white: white;
+$black: #333333;
+
+$hover-color: lighten($sab-blue, 6%);
+$hover-color-gray: #e6e6e6;
+$hover-border-color-gray: #adadad;
 
 $primary-color-active: rgba(56, 144, 208, 0.5) !default;
 $primary-color-hover: rgba(56, 144, 208, 0.2) !default;
@@ -22,3 +30,9 @@ $state-warning-border: darken(adjust-hue($state-warning-bg, -10), 5%);
 $state-danger-text: #a94442;
 $state-danger-bg: #f2dede;
 $state-danger-border: darken(adjust-hue($state-danger-bg, -10), 5%);
+
+%ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
