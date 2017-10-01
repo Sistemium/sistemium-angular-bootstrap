@@ -1,0 +1,170 @@
+@import "variables";
+
+sab-dropdown {
+
+  $padding: 5px;
+  $border-color: #ccc;
+  $height: 32px;
+
+  .popover {
+    min-width: 340px;
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .popover-content {
+    padding: $padding;
+  }
+
+  .active {
+    background: darken($hover-color, 5%);
+  }
+
+  .sab-dropdown {
+
+
+    min-height: 34px;
+
+    display: flex;
+
+    > a {
+
+      display: flex;
+      flex: 1;
+
+      border: 1px solid $border-color;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      border-radius: 4px;
+      padding: 0 $padding * 2;
+      //height: $height;
+
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+
+      > .name {
+        span + span {
+          margin-left: 10px;
+        }
+      }
+
+    }
+
+    > button-add {
+      margin-left: $padding;
+      button.btn-warning {
+        border: 1px solid $border-color;
+        //background-color: $white;
+      }
+    }
+
+  }
+
+  .search-add {
+
+    display: flex;
+    flex-wrap: nowrap;
+
+    margin-bottom: 6px;
+
+    .search {
+      flex: 1;
+    }
+
+    button {
+      margin-left: 6px;
+      padding: 6px 8px;
+    }
+
+  }
+
+  .sab-dropdown-items > *, .no-results {
+
+    @extend %ellipsis;
+
+    line-height: 34px;
+    display: block;
+    padding: 0 10px;
+
+  }
+
+  .no-results {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .sab-dropdown-item:hover, .sab-dropdown-item.focused {
+    background: $hover-color;
+    cursor: pointer;
+  }
+
+  .edit-block {
+
+    margin-top: $padding;
+    padding: $padding;
+    box-shadow: $box-shadow;
+    border-radius: $padding;
+
+    .title {
+
+      text-align: center;
+      font-size: 120%;
+      font-weight: 400;
+      padding: 0 0 $padding $padding * 2;
+      color: $black;
+
+      border-bottom: solid 1px $border-gray;
+
+      display: flex;
+      align-items: center;
+
+      > span {
+        flex: 1;
+        text-align: left;
+      }
+
+      > a {
+
+        display: inline-block;
+        margin-left: $padding;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        font-size: 15px;
+        padding: 1px 4px;
+        border-radius: 4px;
+
+      }
+
+      > a.save {
+        background: lighten($state-success-text, 10%);
+        color: $white;
+      }
+
+      > a.cancel i {
+        top: 2px;
+      }
+
+    }
+
+    .button-block {
+
+      display: flex;
+      flex-wrap: nowrap;
+
+      justify-content: flex-end;
+      margin: $padding -5px 0;
+
+      padding: $padding*1.5 $padding $padding/2;
+      border-top: solid 1px $border-gray;
+
+      button {
+        margin-left: 7px;
+      }
+
+    }
+
+  }
+}
