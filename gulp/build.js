@@ -7,10 +7,12 @@ var $ = require('gulp-load-plugins')({
 var conf = require('./conf');
 var runSequence = require('run-sequence');
 var path = require('path');
+var babel = require('gulp-babel');
 
 gulp.task('concat', function () {
   var src = conf.files.sourceFiles.concat([path.join(conf.paths.tmp, '/partials/templateCacheHtml.js')]);
   return gulp.src(src)
+    .pipe(babel())
     .pipe($.plumber())
     .pipe($.concat('sistemium-angular-bootstrap.js'))
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
