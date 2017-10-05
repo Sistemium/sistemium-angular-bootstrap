@@ -41,7 +41,9 @@
       nextDayClick: nextDayClick,
       prevDayClick: prevDayClick,
 
-      $onInit: onInit
+      $onInit: onInit,
+
+      dateFormat: moment.localeData().longDateFormat('L')
 
     });
 

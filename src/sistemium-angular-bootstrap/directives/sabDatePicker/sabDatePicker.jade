@@ -20,7 +20,7 @@
   close-text='{{ vm.closeText }}'
   clear-text='{{ vm.clearText }}'
   ng-click='datepickerPopupOpened = !datepickerPopupOpened'
-  ) {{ vm.date | amDateFormat:'DD/MM/YYYY, dd' }}
+  ) {{ vm.date | amDateFormat:vm.dateFormat }}
 
   span.input-group-btn
     button.btn.btn-default(
