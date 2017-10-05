@@ -1,5 +1,3 @@
-'use strict';
-
 (function () {
 
   angular.module('sistemium.services')
@@ -7,7 +5,7 @@
 
   function sabModalEditing($uibModal, $timeout) {
 
-    let me = this;
+    const me = this;
     // TODO: resolve Schema dependency with a new configurable service
     let Schema = {};
 
