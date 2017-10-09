@@ -7,8 +7,11 @@
       itemsDataSourceName: '@',
       itemsNameProperty: '@',
       itemsGroupProperty: '@',
+      itemsData: '=',
       filter: '=',
-      placement: '@'
+      options: '=',
+      placement: '@',
+      allowClear: '='
     },
 
     templateUrl: 'sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.html',
@@ -30,9 +33,10 @@
       addClick,
       afterCancel,
       afterSave,
+      clearClick,
       groupLabel,
       onKeyDown,
-      emptyText: 'Нажмите, чтобы выбрать из списка'
+      emptyText: 'Нажмите, чтобы выбрать'
 
     });
 
@@ -46,6 +50,11 @@
     /*
      Functions
      */
+
+
+    function clearClick() {
+      vm.currentId = null;
+    }
 
     function onKeyDown($event) {
 
@@ -153,17 +162,26 @@
 
     function onFilter() {
 
-      vm.rebindAll(vm.model, vm.filter || {}, 'vm.data', onSearch);
+      if (!vm.itemsData) {
+        vm.rebindAll(vm.model, vm.filter || {}, 'vm.data', onSearch);
+      }
 
-      vm.model.findAll(vm.filter || {}, vm.options || {})
-        .then(() => {
-          let item = vm.currentId && vm.model.get(vm.currentId);
-          vm.currentItem = (item && _.matches(vm.filter)(item)) ? item : null;
-          if (!vm.currentItem) {
-            vm.currentId = null;
-          }
-        })
-        .then(setDefault);
+      if (!_.get(vm.options, 'doNotFind')) {
+        vm.model.findAll(vm.filter || {}, vm.options || {})
+          .then(setCurrent)
+          .then(setDefault);
+      } else {
+        setCurrent();
+        setDefault();
+      }
+
+      function setCurrent () {
+        let item = vm.currentId && vm.model.get(vm.currentId);
+        vm.currentItem = (item && _.matches(vm.filter)(item)) ? item : null;
+        if (!vm.currentItem) {
+          vm.currentId = null;
+        }
+      }
 
     }
 
@@ -251,6 +269,19 @@
         newItemTitle: _.get(model, 'meta.label.add') || 'Naujas įrašas'
       });
 
+      let accusative = _.get(model, 'meta.label.accusative');
+
+      vm.emptyText += ` ${accusative || 'из списка'}`;
+
+      if (vm.itemsData) {
+
+        $scope.$watchCollection('vm.itemsData', () => {
+          vm.data = vm.itemsData;
+          onSearch();
+        });
+
+      }
+
       onFilter();
 
     }
@@ -261,7 +292,7 @@
 
       vm.filteredData = !search ? vm.data : $filter('filter')(vm.data, search);
 
-      vm.filteredData = $filter('orderBy')(vm.filteredData, vm.itemsNameProperty);
+      vm.filteredData = _.orderBy(vm.filteredData, [vm.itemsGroupProperty, vm.itemsNameProperty], ['asc', 'asc']);
 
     }
 

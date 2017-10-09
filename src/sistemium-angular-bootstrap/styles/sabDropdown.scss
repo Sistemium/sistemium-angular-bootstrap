@@ -22,6 +22,9 @@ sab-dropdown {
 
   .sab-dropdown {
 
+    > .button-clear {
+      margin-right: $padding;
+    }
 
     min-height: 34px;
 
@@ -38,11 +41,12 @@ sab-dropdown {
       padding: 0 $padding * 2;
       //height: $height;
 
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       text-decoration: none;
 
       > .name {
+        flex: 1;
         span + span {
           margin-left: 10px;
         }

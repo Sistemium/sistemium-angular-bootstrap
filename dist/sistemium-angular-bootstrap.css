@@ -6185,6 +6185,8 @@ sab-dropdown .active {
 sab-dropdown .sab-dropdown {
   min-height: 34px;
   display: flex; }
+  sab-dropdown .sab-dropdown > .button-clear {
+    margin-right: 5px; }
   sab-dropdown .sab-dropdown > a {
     display: flex;
     flex: 1;
@@ -6192,11 +6194,13 @@ sab-dropdown .sab-dropdown {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     border-radius: 4px;
     padding: 0 10px;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     text-decoration: none; }
-    sab-dropdown .sab-dropdown > a > .name span + span {
-      margin-left: 10px; }
+    sab-dropdown .sab-dropdown > a > .name {
+      flex: 1; }
+      sab-dropdown .sab-dropdown > a > .name span + span {
+        margin-left: 10px; }
   sab-dropdown .sab-dropdown > button-add {
     margin-left: 5px; }
     sab-dropdown .sab-dropdown > button-add button.btn-warning {

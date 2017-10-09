@@ -1,5 +1,12 @@
 .sab-dropdown(ng-hide='vm.newItem')
 
+  button.button-clear.btn.btn-link.animate-show(
+  ng-if='vm.allowClear'
+  ng-show='vm.currentId'
+  ng-click='vm.clearClick()'
+  )
+    i.glyphicon.glyphicon-remove
+
   a(
   href=''
   uib-popover-template='"sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.template.html"'
