@@ -49,6 +49,7 @@
 
       let bindAllStore = {};
       let busyArray = [];
+      let watches = {};
 
       scope.$on('$destroy', () => _.each(bindAllStore, unbind => unbind()));
       watchStateChange(vm, scope);
@@ -56,13 +57,24 @@
       return _.assign(vm,{
 
         use: (helper) => use.call(vm, helper, scope),
+
         onScope: (event, callback) => {
           managedOn.call(vm, scope, event, callback);
           return vm;
         },
+
         watchScope: (expr, callback, byProperties) => {
-          scope.$watch(expr, callback, byProperties);
+
+          let unwatch = watches[expr];
+
+          if (_.isFunction(unwatch)) {
+            unwatch();
+          }
+
+          watches[expr] = scope.$watch(expr, callback, byProperties);
+
           return vm;
+
         },
 
         rebindAll: (model, filter, expr, callback) => {
