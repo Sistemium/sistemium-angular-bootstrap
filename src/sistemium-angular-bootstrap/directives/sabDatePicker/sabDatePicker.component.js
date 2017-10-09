@@ -32,18 +32,18 @@
     })
   ;
 
-  var ymdFormat = 'YYYY-MM-DD';
+  const ymdFormat = 'YYYY-MM-DD';
 
   function sabDatePickerController($scope) {
 
-    var vm = _.assign(this, {
+    const vm = _.assign(this, {
 
       nextDayClick: nextDayClick,
       prevDayClick: prevDayClick,
 
       $onInit: onInit,
 
-      dateFormat: moment.localeData().longDateFormat('L')
+      dateFormat: moment.localeData().longDateFormat('L') + ', dd'
 
     });
 
