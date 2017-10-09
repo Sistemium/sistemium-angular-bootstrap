@@ -169,7 +169,7 @@
 
     function setDefault() {
 
-      if (vm.currentId || vm.model.meta.noDefault) {
+      if (vm.currentId || _.get(vm.model, 'meta.noDefault')) {
         return;
       }
 

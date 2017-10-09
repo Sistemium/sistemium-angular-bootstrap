@@ -566,21 +566,6 @@
 
 (function (module) {
 
-  module.component('buttonAdd', {
-
-    bindings: {
-      buttonClick: '&'
-    },
-
-    templateUrl: 'sistemium-angular-bootstrap/components/buttonAdd/buttonAdd.html',
-    controllerAs: 'vm'
-
-  });
-})(angular.module('sistemium.directives'));
-'use strict';
-
-(function (module) {
-
   module.component('sabDropdown', {
 
     bindings: {
@@ -744,7 +729,7 @@
 
     function setDefault() {
 
-      if (vm.currentId || vm.model.meta.noDefault) {
+      if (vm.currentId || _.get(vm.model, 'meta.noDefault')) {
         return;
       }
 
@@ -853,6 +838,21 @@
       delete vm.newItem;
     }
   }
+})(angular.module('sistemium.directives'));
+'use strict';
+
+(function (module) {
+
+  module.component('buttonAdd', {
+
+    bindings: {
+      buttonClick: '&'
+    },
+
+    templateUrl: 'sistemium-angular-bootstrap/components/buttonAdd/buttonAdd.html',
+    controllerAs: 'vm'
+
+  });
 })(angular.module('sistemium.directives'));
 'use strict';
 
@@ -992,29 +992,6 @@
 
 (function () {
 
-  angular.module('sistemiumBootstrap.directives').directive('sabErrorWidget', function () {
-
-    return {
-
-      restrict: 'AC',
-      templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
-      controllerAs: 'dm',
-
-      controller: function controller(sabErrorsService) {
-        var dm = this;
-        dm.errors = sabErrorsService.errors;
-        dm.closeError = function (index) {
-          dm.errors.splice(index, 1);
-        };
-      }
-
-    };
-  });
-})();
-'use strict';
-
-(function () {
-
   /**
    * @memberof sistemiumBootstrap.directives
    * @ngdoc directive
@@ -1063,6 +1040,29 @@
     };
   });
 })();
+'use strict';
+
+(function () {
+
+  angular.module('sistemiumBootstrap.directives').directive('sabErrorWidget', function () {
+
+    return {
+
+      restrict: 'AC',
+      templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
+      controllerAs: 'dm',
+
+      controller: function controller(sabErrorsService) {
+        var dm = this;
+        dm.errors = sabErrorsService.errors;
+        dm.closeError = function (index) {
+          dm.errors.splice(index, 1);
+        };
+      }
+
+    };
+  });
+})();
 "use strict";
 
 (function () {
@@ -1072,7 +1072,7 @@
     $templateCache.put("sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.template.html", "\n<div class=\"search-add\" ng-hide=\"vm.newItem\">\n  <vfs-searcher class=\"search\" search=\"vm.search\" ng-keydown=\"vm.onKeyDown($event)\"></vfs-searcher>\n  <button-add button-click=\"vm.addClick()\" ng-if=\"vm.enableAdding\"></button-add>\n</div>\n<div class=\"scroll-y sab-dropdown-items\" vs-repeat=\"34\" id=\"{{ vm.id }}\" ng-if=\"vm.id\" resize=\"resize\" resize-offset-top=\"15\">\n  <div class=\"sab-dropdown-item\" id=\"{{ item.id }}\" ng-repeat=\"item in vm.filteredData track by item.id\" ng-class=\"{active : !vm.focused &amp;&amp; vm.currentItem.id === item.id, focused: vm.focused.id === item.id }\" ng-click=\"vm.itemClick(item)\"><span ng-if=\"vm.itemsGroupProperty\">{{ vm.groupLabel(item) }}&nbsp;</span><span>{{item[vm.itemsNameProperty]}}</span></div>\n</div>\n<div class=\"no-results\" ng-if=\"!vm.filteredData.length\"><span ng-if=\"vm.search\">Подходящих данных нет</span><span ng-if=\"!vm.search\">Данных нет</span><span ng-if=\"vm.enableAdding\">, хотите</span> <a href=\"\" ng-if=\"vm.enableAdding\" ng-click=\"$event.stopPropagation();vm.addClick($event)\">добавить</a> <span ng-if=\"vm.enableAdding\">новую запись?</span>\n</div>");
     $templateCache.put("sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html", "\n<div class=\"input-group\"><span class=\"input-group-btn\">\n    <button class=\"btn btn-default\" ng-click=\"vm.prevDayClick()\" ng-disabled=\"vm.datepickerOptions.minDate &amp;&amp; vm.date &lt;= vm.datepickerOptions.minDate\"><i class=\"glyphicon glyphicon-chevron-left\"></i></button></span><span class=\"form-control text-center\" uib-datepicker-popup=\"uib-datepicker-popup\" ng-model=\"vm.date\" datepicker-options=\"vm.datepickerOptions\" is-open=\"datepickerPopupOpened\" datepicker-append-to-body=\"true\" no-show-button-bar=\"false\" on-open-focus=\"false\" ng-required=\"true\" current-text=\"false\" close-text=\"{{ vm.closeText }}\" clear-text=\"{{ vm.clearText }}\" ng-click=\"datepickerPopupOpened = !datepickerPopupOpened\">{{ vm.date | amDateFormat:vm.dateFormat }}</span><span class=\"input-group-btn\">\n    <button class=\"btn btn-default\" ng-click=\"vm.nextDayClick()\" ng-disabled=\"vm.datepickerOptions.maxDate &amp;&amp; vm.date &gt;= vm.datepickerOptions.maxDate\"><i class=\"glyphicon glyphicon-chevron-right\"></i></button></span></div>");
     $templateCache.put("sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePickerInput.html", "\n<div class=\"input-group\">\n  <input class=\"form-control\" uib-datepicker-popup=\"yyyy-MM-dd\" alt-input-formats=\"vm.altInputFormats\" ng-model=\"vm.dateInput\" ng-class=\"{invalid: !vm.dateInputValid}\" datepicker-options=\"vm.datepickerOptions\" is-open=\"datepickerPopupOpened\" datepicker-append-to-body=\"true\" no-show-button-bar=\"false\" on-open-focus=\"false\" ng-required=\"true\" current-text=\"false\" close-text=\"{{ vm.closeText }}\" clear-text=\"{{ vm.clearText }}\" placeholder=\"Data\" maxlength=\"10\"/><span class=\"input-group-btn\">\n    <button class=\"btn btn-default\" ng-click=\"datepickerPopupOpened = !datepickerPopupOpened\"><i class=\"glyphicon glyphicon-calendar\"></i></button></span>\n</div>");
-    $templateCache.put("sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html", "\n<div ng-show=\"dm.errors.length\">\n  <uib-alert ng-repeat=\"error in dm.errors\" type=\"{{error.type}}\" close=\"dm.closeError($index)\">{{error.msg}}</uib-alert>\n</div>");
     $templateCache.put("sistemium-angular-bootstrap/directives/sabInputWithAddon/sabInputWithAddon.html", "\n<div class=\"form-group\">\n  <div class=\"input-group\">\n    <div class=\"input-group-btn\" uib-dropdown=\"uib-dropdown\" is-open=\"vm.isOpen\">\n      <button class=\"btn\" type=\"button\" ng-class=\"vm.sabBtnClass\" uib-dropdown-toggle=\"uib-dropdown-toggle\">{{sabSelectModel[sabLabelProp]}} <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu\">\n        <li ng-repeat=\"item in sabSelectOptions\"><a href=\"\" ng-click=\"vm.setActiveItem(item)\">{{item[sabLabelProp]}}</a></li>\n      </ul>\n    </div>\n    <input class=\"form-control\" ng-model=\"sabInputModel\" type=\"number\" ng-required=\"required\"/>\n  </div>\n</div>");
+    $templateCache.put("sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html", "\n<div ng-show=\"dm.errors.length\">\n  <uib-alert ng-repeat=\"error in dm.errors\" type=\"{{error.type}}\" close=\"dm.closeError($index)\">{{error.msg}}</uib-alert>\n</div>");
   }]);
 })();
