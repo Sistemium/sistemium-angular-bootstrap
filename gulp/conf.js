@@ -32,6 +32,7 @@ var sourceFiles = [
   path.join(paths.sourceDirectory, '/**/*.js')
 ];
 exports.files = {
+  pugFiles: [path.join(paths.sourceDirectory, '/**/*.{pug,jade}')],
   sourceFiles: sourceFiles,
   styleFiles: [
     path.join(paths.sourceDirectory, '/sistemium-angular-bootstrap/styles/*.scss'),
