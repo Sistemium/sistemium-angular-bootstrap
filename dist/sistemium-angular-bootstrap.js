@@ -25,47 +25,6 @@
 
 (function () {
 
-  function transformToComponentDirective($compile) {
-
-    return {
-
-      scope: {
-        componentName: '@',
-        instance: '='
-      },
-
-      restrict: 'E',
-      controller: transformToComponentController,
-      controllerAs: 'vm',
-      bindToController: true,
-
-      link: function link(scope, element, attrs) {
-        var componentName = attrs.componentName;
-
-        var itemName = _.last(componentName.match(/edit-(.*)/));
-
-        var template = angular.element('<' + componentName + ' ' + itemName + '="vm.instance"></' + componentName + '>');
-
-        element.append(template);
-        $compile(template)(scope);
-      }
-
-    };
-  }
-
-  angular.module('sistemium.directives').directive('transformToComponent', transformToComponentDirective);
-
-  function transformToComponentController() {
-
-    var vm = this;
-
-    _.assign(vm, {});
-  }
-})();
-'use strict';
-
-(function () {
-
   function saControllerHelper($q, $timeout) {
 
     return {
@@ -575,6 +534,58 @@
 })();
 'use strict';
 
+(function () {
+
+  function transformToComponentDirective($compile) {
+
+    return {
+
+      scope: {
+        componentName: '@'
+      },
+
+      restrict: 'E',
+      controller: transformToComponentController,
+      controllerAs: 'vm',
+      //bindToController: true,
+
+      link: function link(scope, element, attrs) {
+        var componentName = attrs.componentName;
+
+
+        var ignoreAttrs = ['instance', 'componentName'];
+
+        //let itemName = _.last(componentName.match(/edit-(.*)/));
+
+        var params = [];
+
+        _.each(attrs, function (val, key) {
+
+          if (!/\$+/.test(key) && _.indexOf(ignoreAttrs, key) < 0) {
+            params.push(_.kebabCase(key) + '="' + val + '"');
+          }
+        });
+
+        var template = angular.element('<' + componentName + ' ' + params.join(' ') + '></' + componentName + '>');
+
+        element.append(template);
+        $compile(template)(scope.$parent);
+      }
+
+    };
+  }
+
+  angular.module('sistemium.directives').directive('transformToComponent', transformToComponentDirective);
+
+  function transformToComponentController() {
+
+    var vm = this;
+
+    _.assign(vm, {});
+  }
+})();
+'use strict';
+
 (function (module) {
 
   module.component('buttonAdd', {
@@ -898,6 +909,29 @@
 
 (function () {
 
+  angular.module('sistemiumBootstrap.directives').directive('sabErrorWidget', function () {
+
+    return {
+
+      restrict: 'AC',
+      templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
+      controllerAs: 'dm',
+
+      controller: function controller(sabErrorsService) {
+        var dm = this;
+        dm.errors = sabErrorsService.errors;
+        dm.closeError = function (index) {
+          dm.errors.splice(index, 1);
+        };
+      }
+
+    };
+  });
+})();
+'use strict';
+
+(function () {
+
   var bindings = {
     value: '=',
     minDate: '<',
@@ -1027,29 +1061,6 @@
       vm.date = date.toDate();
     }
   }
-})();
-'use strict';
-
-(function () {
-
-  angular.module('sistemiumBootstrap.directives').directive('sabErrorWidget', function () {
-
-    return {
-
-      restrict: 'AC',
-      templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
-      controllerAs: 'dm',
-
-      controller: function controller(sabErrorsService) {
-        var dm = this;
-        dm.errors = sabErrorsService.errors;
-        dm.closeError = function (index) {
-          dm.errors.splice(index, 1);
-        };
-      }
-
-    };
-  });
 })();
 'use strict';
 
