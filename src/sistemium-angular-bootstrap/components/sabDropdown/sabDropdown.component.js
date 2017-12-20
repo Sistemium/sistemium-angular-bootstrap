@@ -11,7 +11,8 @@
       filter: '=',
       options: '=',
       placement: '@',
-      allowClear: '='
+      allowClear: '=',
+      orderDir: '@'
     },
 
     templateUrl: 'sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.html',
@@ -288,11 +289,15 @@
 
     function onSearch() {
 
-      let {search} = vm;
+      let {search, orderDir = 'asc'} = vm;
 
       vm.filteredData = !search ? vm.data : $filter('filter')(vm.data, search);
 
-      vm.filteredData = _.orderBy(vm.filteredData, [vm.itemsGroupProperty, vm.itemsNameProperty], ['asc', 'asc']);
+      vm.filteredData = _.orderBy(
+        vm.filteredData,
+        [vm.itemsGroupProperty, vm.itemsNameProperty],
+        [orderDir, orderDir]
+      );
 
     }
 

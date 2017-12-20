@@ -54,7 +54,7 @@
       scope.$on('$destroy', () => _.each(bindAllStore, unbind => unbind()));
       watchStateChange(vm, scope);
 
-      return _.assign(vm,{
+      return _.assign(vm, {
 
         use: (helper) => use.call(vm, helper, scope),
 
@@ -105,50 +105,15 @@
             promise = $q.all(promise);
           }
 
-          if (!busyArray.length) {
+          vm.busy = promise;
 
-            // console.info('setBusy make new');
-            vm.busy = $q((resolve, reject) => {
+          vm.busy.finally(() => vm.busy = false);
 
-              function popResolver () {
+          vm.cgBusy = {promise};
 
-                let next = busyArray.pop();
-
-                if (next) {
-                  // console.info('setBusy next', next);
-                  next.promise.then(popResolver, reject);
-                  if (next.message) {
-                    vm.cgBusy.message = next.message;
-                  }
-                } else {
-                  // console.info('setBusy resolve');
-                  resolve();
-                  vm.busy = false;
-                }
-
-              }
-
-              promise.then(() => $timeout().then(popResolver), reject);
-
-            });
-
-            vm.busy.catch(() => {
-              vm.busy = false;
-              busyArray = [];
-            });
-
-            vm.cgBusy = {
-              promise: vm.busy
-            };
-
-            if (message) {
-              vm.cgBusy.message = message;
-            }
-
+          if (message) {
+            vm.cgBusy.message = message;
           }
-
-          busyArray.push({promise, message});
-          // console.info('setBusy push', promise);
 
           return promise;
 
