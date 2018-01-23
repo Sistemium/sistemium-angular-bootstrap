@@ -18,11 +18,11 @@
   placeholder='{{ vm.placeholder }}'
   maxlength='10'
   sa-enter-key='datepickerPopupOpened=false'
-  ng-blur='datepickerPopupOpened=false'
+  ng-blur='vm.onInputBlur($event)'
   )
 
   span.input-group-btn
-    button.btn.btn-default(
+    button.btn.btn-default.sab-date-picker-toggle(
     ng-click='datepickerPopupOpened = !datepickerPopupOpened'
     )
       i.glyphicon.glyphicon-calendar

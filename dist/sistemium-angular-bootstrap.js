@@ -554,221 +554,6 @@
 })();
 'use strict';
 
-(function () {
-
-  var bindings = {
-    value: '=',
-    minDate: '<',
-    maxDate: '<',
-    initDate: '<',
-    customClass: '<',
-    clearText: '@',
-    closeText: '@',
-    options: '<',
-    ngRequired: '<',
-    placeholder: '@'
-  };
-
-  angular.module('sistemiumBootstrap.directives').component('sabDatePicker', {
-
-    bindings: bindings,
-
-    templateUrl: 'sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html',
-    controller: sabDatePickerController,
-    controllerAs: 'vm'
-
-  }).component('sabDatePickerInput', {
-
-    bindings: bindings,
-
-    templateUrl: 'sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePickerInput.html',
-    controller: sabDatePickerController,
-    controllerAs: 'vm'
-
-  });
-
-  var ymdFormat = 'YYYY-MM-DD';
-
-  function sabDatePickerController($scope) {
-
-    var vm = _.assign(this, {
-
-      nextDayClick: nextDayClick,
-      prevDayClick: prevDayClick,
-
-      $onInit: onInit,
-
-      dateFormat: moment.localeData().longDateFormat('L') + ', dd'
-
-    });
-
-    function onInit() {
-
-      vm.date = vm.value ? dateWithoutTime(vm.value) : null;
-
-      vm.dateInputValid = true;
-
-      vm.options = _.defaults({
-        minDate: vm.minDate && dateWithoutTime(vm.minDate),
-        maxDate: vm.maxDate && dateWithoutTime(vm.maxDate),
-        initDate: vm.initDate,
-        customClass: vm.customClass,
-        showWeeks: false
-      }, vm.options || {});
-
-      vm.datepickerOptions = _.defaults(vm.options, $scope.datepickerOptions);
-
-      vm.altInputFormats = ['yyyy/MM/dd', 'yyyy.MM.dd'];
-
-      vm.placeholder = vm.placeholder || 'Data';
-
-      $scope.$watch('vm.value', function () {
-
-        vm.date = vm.value ? dateWithoutTime(vm.value) : null;
-        vm.dateInput = vm.date;
-      });
-
-      $scope.$watch('vm.dateInput', function (dateInput, ov) {
-
-        if (dateInput === ov) {
-          return;
-        }
-
-        vm.dateInputValid = isValid(dateInput);
-
-        if (vm.dateInputValid) {
-          vm.date = dateWithoutTime(dateInput);
-        } else {
-          vm.date = null;
-        }
-      });
-
-      $scope.$watch('vm.date', function (nv) {
-
-        if (!isValid(nv)) {
-          vm.date = vm.initDate ? dateWithoutTime(vm.initDate) : null;
-        }
-
-        vm.value = vm.date ? moment(vm.date.toISOString()).format(ymdFormat) : null;
-      });
-
-      $scope.$watch('vm.minDate', function () {
-
-        vm.datepickerOptions = _.defaults({
-          minDate: vm.minDate && dateWithoutTime(vm.minDate)
-        }, vm.datepickerOptions);
-      });
-    }
-
-    function isValid(date) {
-      return date && _.isDate(date) && !_.isNaN(date.getTime());
-    }
-
-    function dateWithoutTime(date) {
-      return moment(moment(date).format(ymdFormat)).toDate();
-    }
-
-    function nextDayClick() {
-      var date = vm.date && moment(vm.date.toISOString()).add(1, 'day') || moment();
-      setValidDate(date);
-    }
-
-    function prevDayClick() {
-      var date = vm.date && moment(vm.date.toISOString()).add(-1, 'day') || moment();
-      setValidDate(date);
-    }
-
-    function setValidDate(date) {
-
-      if (vm.datepickerOptions.maxDate) {
-        date = _.min([moment(vm.datepickerOptions.maxDate), date]);
-      }
-
-      if (vm.datepickerOptions.minDate) {
-        date = _.max([moment(vm.datepickerOptions.minDate), date]);
-      }
-
-      vm.date = date.toDate();
-    }
-  }
-})();
-'use strict';
-
-(function () {
-
-  angular.module('sistemiumBootstrap.directives').directive('sabErrorWidget', function () {
-
-    return {
-
-      restrict: 'AC',
-      templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
-      controllerAs: 'dm',
-
-      controller: function controller(sabErrorsService) {
-        var dm = this;
-        dm.errors = sabErrorsService.errors;
-        dm.closeError = function (index) {
-          dm.errors.splice(index, 1);
-        };
-      }
-
-    };
-  });
-})();
-'use strict';
-
-(function () {
-
-  /**
-   * @memberof sistemiumBootstrap.directives
-   * @ngdoc directive
-   * @name sabInputWithAddon
-   * @description
-   *  A directive for component with input and select addon
-   *
-   * @example
-   *  Usage:
-   *    <div sab-input-with-addon
-   *    sab-input-model="vm.inputModel"
-   *    sab-select-model="vm.selectModel"
-   *    sab-select-options="vm.selectOptions"
-   *    sab-label-prop="value"
-   *    sab-value-prop="id"
-   *    ></div>
-   */
-
-  angular.module('sistemiumBootstrap.directives').directive('sabInputWithAddon', function () {
-    return {
-
-      restrict: 'AC',
-      templateUrl: 'sistemium-angular-bootstrap/directives/sabInputWithAddon/sabInputWithAddon.html',
-      replace: true,
-      scope: {
-        sabSelectModel: '=',
-        sabInputModel: '=',
-        sabLabelProp: '@',
-        sabValueProp: '@',
-        sabSelectOptions: '=',
-        required: '@',
-        sabBtnClass: '@'
-      },
-
-      controller: function controller($scope) {
-
-        var vm = this;
-        vm.setActiveItem = function (item) {
-          $scope.sabSelectModel = item;
-        };
-
-        vm.sabBtnClass = $scope.sabBtnClass || 'btn-default';
-      },
-      controllerAs: 'vm'
-
-    };
-  });
-})();
-'use strict';
-
 (function (module) {
 
   module.component('buttonAdd', {
@@ -1091,6 +876,235 @@
     }
   }
 })(angular.module('sistemium.directives'));
+'use strict';
+
+(function () {
+
+  var bindings = {
+    value: '=',
+    minDate: '<',
+    maxDate: '<',
+    initDate: '<',
+    customClass: '<',
+    clearText: '@',
+    closeText: '@',
+    options: '<',
+    ngRequired: '<',
+    placeholder: '@'
+  };
+
+  angular.module('sistemiumBootstrap.directives').component('sabDatePicker', {
+
+    bindings: bindings,
+
+    templateUrl: 'sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html',
+    controller: sabDatePickerController,
+    controllerAs: 'vm'
+
+  }).component('sabDatePickerInput', {
+
+    bindings: bindings,
+
+    templateUrl: 'sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePickerInput.html',
+    controller: sabDatePickerController,
+    controllerAs: 'vm'
+
+  });
+
+  var ymdFormat = 'YYYY-MM-DD';
+
+  function sabDatePickerController($scope) {
+
+    var vm = _.assign(this, {
+
+      nextDayClick: nextDayClick,
+      prevDayClick: prevDayClick,
+
+      $onInit: onInit,
+
+      onInputBlur: onInputBlur,
+
+      dateFormat: moment.localeData().longDateFormat('L') + ', dd'
+
+    });
+
+    function onInit() {
+
+      vm.date = vm.value ? dateWithoutTime(vm.value) : null;
+
+      vm.dateInputValid = true;
+
+      vm.options = _.defaults({
+        minDate: vm.minDate && dateWithoutTime(vm.minDate),
+        maxDate: vm.maxDate && dateWithoutTime(vm.maxDate),
+        initDate: vm.initDate,
+        customClass: vm.customClass,
+        showWeeks: false
+      }, vm.options || {});
+
+      vm.datepickerOptions = _.defaults(vm.options, $scope.datepickerOptions);
+
+      vm.altInputFormats = ['yyyy/MM/dd', 'yyyy.MM.dd'];
+
+      vm.placeholder = vm.placeholder || 'Data';
+
+      $scope.$watch('vm.value', function () {
+
+        vm.date = vm.value ? dateWithoutTime(vm.value) : null;
+        vm.dateInput = vm.date;
+      });
+
+      $scope.$watch('vm.dateInput', function (dateInput, ov) {
+
+        if (dateInput === ov) {
+          return;
+        }
+
+        vm.dateInputValid = isValid(dateInput);
+
+        if (vm.dateInputValid) {
+          vm.date = dateWithoutTime(dateInput);
+        } else {
+          vm.date = null;
+        }
+      });
+
+      $scope.$watch('vm.date', function (nv) {
+
+        if (!isValid(nv)) {
+          vm.date = vm.initDate ? dateWithoutTime(vm.initDate) : null;
+        }
+
+        vm.value = vm.date ? moment(vm.date.toISOString()).format(ymdFormat) : null;
+      });
+
+      $scope.$watch('vm.minDate', function () {
+
+        vm.datepickerOptions = _.defaults({
+          minDate: vm.minDate && dateWithoutTime(vm.minDate)
+        }, vm.datepickerOptions);
+      });
+    }
+
+    function onInputBlur(event) {
+
+      var classes = _.get(event, 'relatedTarget.className') + ' ' + _.get(event, 'relatedTarget.parentNode.className');
+
+      // to prevent closing if clicked somewhere inside a calendar popover
+      if (!/uib-/.test(classes)) {
+        $scope.$evalAsync(function () {
+          return $scope.datepickerPopupOpened = false;
+        });
+      }
+    }
+
+    function isValid(date) {
+      return date && _.isDate(date) && !_.isNaN(date.getTime());
+    }
+
+    function dateWithoutTime(date) {
+      return moment(moment(date).format(ymdFormat)).toDate();
+    }
+
+    function nextDayClick() {
+      var date = vm.date && moment(vm.date.toISOString()).add(1, 'day') || moment();
+      setValidDate(date);
+    }
+
+    function prevDayClick() {
+      var date = vm.date && moment(vm.date.toISOString()).add(-1, 'day') || moment();
+      setValidDate(date);
+    }
+
+    function setValidDate(date) {
+
+      if (vm.datepickerOptions.maxDate) {
+        date = _.min([moment(vm.datepickerOptions.maxDate), date]);
+      }
+
+      if (vm.datepickerOptions.minDate) {
+        date = _.max([moment(vm.datepickerOptions.minDate), date]);
+      }
+
+      vm.date = date.toDate();
+    }
+  }
+})();
+'use strict';
+
+(function () {
+
+  angular.module('sistemiumBootstrap.directives').directive('sabErrorWidget', function () {
+
+    return {
+
+      restrict: 'AC',
+      templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
+      controllerAs: 'dm',
+
+      controller: function controller(sabErrorsService) {
+        var dm = this;
+        dm.errors = sabErrorsService.errors;
+        dm.closeError = function (index) {
+          dm.errors.splice(index, 1);
+        };
+      }
+
+    };
+  });
+})();
+'use strict';
+
+(function () {
+
+  /**
+   * @memberof sistemiumBootstrap.directives
+   * @ngdoc directive
+   * @name sabInputWithAddon
+   * @description
+   *  A directive for component with input and select addon
+   *
+   * @example
+   *  Usage:
+   *    <div sab-input-with-addon
+   *    sab-input-model="vm.inputModel"
+   *    sab-select-model="vm.selectModel"
+   *    sab-select-options="vm.selectOptions"
+   *    sab-label-prop="value"
+   *    sab-value-prop="id"
+   *    ></div>
+   */
+
+  angular.module('sistemiumBootstrap.directives').directive('sabInputWithAddon', function () {
+    return {
+
+      restrict: 'AC',
+      templateUrl: 'sistemium-angular-bootstrap/directives/sabInputWithAddon/sabInputWithAddon.html',
+      replace: true,
+      scope: {
+        sabSelectModel: '=',
+        sabInputModel: '=',
+        sabLabelProp: '@',
+        sabValueProp: '@',
+        sabSelectOptions: '=',
+        required: '@',
+        sabBtnClass: '@'
+      },
+
+      controller: function controller($scope) {
+
+        var vm = this;
+        vm.setActiveItem = function (item) {
+          $scope.sabSelectModel = item;
+        };
+
+        vm.sabBtnClass = $scope.sabBtnClass || 'btn-default';
+      },
+      controllerAs: 'vm'
+
+    };
+  });
+})();
 "use strict";
 
 (function () {
@@ -1099,7 +1113,7 @@
     $templateCache.put("sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.html", "\n<div class=\"sab-dropdown\" ng-hide=\"vm.newItem\">\n  <button class=\"button-clear btn btn-link animate-show\" ng-if=\"vm.allowClear\" ng-show=\"vm.currentId\" ng-click=\"vm.clearClick()\"><i class=\"glyphicon glyphicon-remove\"></i></button><a href=\"\" uib-popover-template=\"&quot;sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.template.html&quot;\" popover-is-open=\"vm.isOpen\" popover-placement=\"{{vm.placement || &quot;bottom-left&quot;}}\">\n    <div class=\"name\"><span ng-if=\"vm.itemsGroupProperty &amp;&amp; vm.currentItem\" ng-bind=\"vm.groupLabel(vm.currentItem)\"></span><span>{{ vm.currentItem[vm.itemsNameProperty] || vm.emptyText }}</span></div><span class=\"caret\"></span></a>\n  <button-add button-click=\"vm.addClick()\" ng-if=\"vm.enableAdding\"></button-add>\n</div>\n<div class=\"edit-block\" ng-if=\"vm.newItem\">\n  <div class=\"title\"><span>{{ vm.newItemTitle }}</span><a class=\"save animate-show\" href=\"\" ng-click=\"vm.saveClick($event)\" ng-show=\"vm.newItem.isValid()\"><i class=\"glyphicon glyphicon-ok\"></i></a><a class=\"cancel\" href=\"\" ng-click=\"vm.cancelClick($event)\"><i class=\"glyphicon glyphicon-remove\"></i></a></div>\n  <transform-to-component component-name=\"{{vm.editComponentName}}\" instance=\"vm.newItem\"></transform-to-component>\n</div>");
     $templateCache.put("sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.template.html", "\n<div class=\"search-add\" ng-hide=\"vm.newItem\">\n  <vfs-searcher class=\"search\" search=\"vm.search\" ng-keydown=\"vm.onKeyDown($event)\"></vfs-searcher>\n  <button-add button-click=\"vm.addClick()\" ng-if=\"vm.enableAdding\"></button-add>\n</div>\n<div class=\"scroll-y sab-dropdown-items\" vs-repeat=\"34\" id=\"{{ vm.id }}\" ng-if=\"vm.id\" resize=\"resize\" resize-offset-top=\"15\">\n  <div class=\"sab-dropdown-item\" id=\"{{ item.id }}\" ng-repeat=\"item in vm.filteredData track by item.id\" ng-class=\"{active : !vm.focused &amp;&amp; vm.currentItem.id === item.id, focused: vm.focused.id === item.id }\" ng-click=\"vm.itemClick(item)\"><span ng-if=\"vm.itemsGroupProperty\">{{ vm.groupLabel(item) }}&nbsp;</span><span>{{item[vm.itemsNameProperty]}}</span></div>\n</div>\n<div class=\"no-results\" ng-if=\"!vm.filteredData.length\"><span ng-if=\"vm.search\">Подходящих данных нет</span><span ng-if=\"!vm.search\">Данных нет</span><span ng-if=\"vm.enableAdding\">, хотите</span> <a href=\"\" ng-if=\"vm.enableAdding\" ng-click=\"$event.stopPropagation();vm.addClick($event)\">добавить</a> <span ng-if=\"vm.enableAdding\">новую запись?</span>\n</div>");
     $templateCache.put("sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html", "\n<div class=\"input-group\"><span class=\"input-group-btn\">\n    <button class=\"btn btn-default\" ng-click=\"vm.prevDayClick()\" ng-disabled=\"vm.datepickerOptions.minDate &amp;&amp; vm.date &lt;= vm.datepickerOptions.minDate\"><i class=\"glyphicon glyphicon-chevron-left\"></i></button></span><span class=\"form-control text-center\" uib-datepicker-popup=\"uib-datepicker-popup\" ng-model=\"vm.date\" datepicker-options=\"vm.datepickerOptions\" is-open=\"datepickerPopupOpened\" datepicker-append-to-body=\"true\" no-show-button-bar=\"false\" on-open-focus=\"false\" ng-required=\"true\" current-text=\"false\" close-text=\"{{ vm.closeText }}\" clear-text=\"{{ vm.clearText }}\" ng-click=\"datepickerPopupOpened = !datepickerPopupOpened\">{{ vm.date | amDateFormat:vm.dateFormat }}</span><span class=\"input-group-btn\">\n    <button class=\"btn btn-default\" ng-click=\"vm.nextDayClick()\" ng-disabled=\"vm.datepickerOptions.maxDate &amp;&amp; vm.date &gt;= vm.datepickerOptions.maxDate\"><i class=\"glyphicon glyphicon-chevron-right\"></i></button></span></div>");
-    $templateCache.put("sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePickerInput.html", "\n<div class=\"input-group\">\n  <input class=\"form-control\" uib-datepicker-popup=\"yyyy-MM-dd\" alt-input-formats=\"vm.altInputFormats\" ng-model=\"vm.dateInput\" ng-class=\"{invalid: !vm.dateInputValid}\" datepicker-options=\"vm.datepickerOptions\" is-open=\"datepickerPopupOpened\" datepicker-append-to-body=\"true\" no-show-button-bar=\"false\" on-open-focus=\"false\" ng-click=\"datepickerPopupOpened=!datepickerPopupOpened\" ng-required=\"vm.ngRequired\" current-text=\"false\" close-text=\"{{ vm.closeText }}\" clear-text=\"{{ vm.clearText }}\" placeholder=\"{{ vm.placeholder }}\" maxlength=\"10\" sa-enter-key=\"datepickerPopupOpened=false\" ng-blur=\"datepickerPopupOpened=false\"/><span class=\"input-group-btn\">\n    <button class=\"btn btn-default\" ng-click=\"datepickerPopupOpened = !datepickerPopupOpened\"><i class=\"glyphicon glyphicon-calendar\"></i></button></span>\n</div>");
+    $templateCache.put("sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePickerInput.html", "\n<div class=\"input-group\">\n  <input class=\"form-control\" uib-datepicker-popup=\"yyyy-MM-dd\" alt-input-formats=\"vm.altInputFormats\" ng-model=\"vm.dateInput\" ng-class=\"{invalid: !vm.dateInputValid}\" datepicker-options=\"vm.datepickerOptions\" is-open=\"datepickerPopupOpened\" datepicker-append-to-body=\"true\" no-show-button-bar=\"false\" on-open-focus=\"false\" ng-click=\"datepickerPopupOpened=!datepickerPopupOpened\" ng-required=\"vm.ngRequired\" current-text=\"false\" close-text=\"{{ vm.closeText }}\" clear-text=\"{{ vm.clearText }}\" placeholder=\"{{ vm.placeholder }}\" maxlength=\"10\" sa-enter-key=\"datepickerPopupOpened=false\" ng-blur=\"vm.onInputBlur($event)\"/><span class=\"input-group-btn\">\n    <button class=\"btn btn-default sab-date-picker-toggle\" ng-click=\"datepickerPopupOpened = !datepickerPopupOpened\"><i class=\"glyphicon glyphicon-calendar\"></i></button></span>\n</div>");
     $templateCache.put("sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html", "\n<div ng-show=\"dm.errors.length\">\n  <uib-alert ng-repeat=\"error in dm.errors\" type=\"{{error.type}}\" close=\"dm.closeError($index)\">{{error.msg}}</uib-alert>\n</div>");
     $templateCache.put("sistemium-angular-bootstrap/directives/sabInputWithAddon/sabInputWithAddon.html", "\n<div class=\"form-group\">\n  <div class=\"input-group\">\n    <div class=\"input-group-btn\" uib-dropdown=\"uib-dropdown\" is-open=\"vm.isOpen\">\n      <button class=\"btn\" type=\"button\" ng-class=\"vm.sabBtnClass\" uib-dropdown-toggle=\"uib-dropdown-toggle\">{{sabSelectModel[sabLabelProp]}} <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu\">\n        <li ng-repeat=\"item in sabSelectOptions\"><a href=\"\" ng-click=\"vm.setActiveItem(item)\">{{item[sabLabelProp]}}</a></li>\n      </ul>\n    </div>\n    <input class=\"form-control\" ng-model=\"sabInputModel\" type=\"number\" ng-required=\"required\"/>\n  </div>\n</div>");
   }]);

@@ -45,6 +45,8 @@
 
       $onInit: onInit,
 
+      onInputBlur,
+
       dateFormat: moment.localeData().longDateFormat('L') + ', dd'
 
     });
@@ -109,6 +111,17 @@
         }, vm.datepickerOptions);
 
       });
+
+    }
+
+    function onInputBlur(event) {
+
+      let classes = `${_.get(event, 'relatedTarget.className')} ${_.get(event, 'relatedTarget.parentNode.className')}`;
+
+      // to prevent closing if clicked somewhere inside a calendar popover
+      if (!/uib-/.test(classes)) {
+        $scope.$evalAsync(() => $scope.datepickerPopupOpened = false);
+      }
 
     }
 
