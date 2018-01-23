@@ -37,7 +37,7 @@
     "angular-mocks": "~1.6.3",
     "angular-scenario": "~1.6.3",
     "angular": "~1.6.3",
-    "sistemium-angular": "^0.8.0"
+    "sistemium-angular": "^0.8.6"
   },
   "overrides": {
     "bootstrap-sass": {

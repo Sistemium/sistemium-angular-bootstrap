@@ -10,12 +10,15 @@
   datepicker-append-to-body='true'
   no-show-button-bar='false'
   on-open-focus='false'
-  ng-required='true'
+  ng-click='datepickerPopupOpened=!datepickerPopupOpened'
+  ng-required='vm.ngRequired'
   current-text='false'
   close-text='{{ vm.closeText }}'
   clear-text='{{ vm.clearText }}'
-  placeholder='Data'
+  placeholder='{{ vm.placeholder }}'
   maxlength='10'
+  sa-enter-key='datepickerPopupOpened=false'
+  ng-blur='datepickerPopupOpened=false'
   )
 
   span.input-group-btn

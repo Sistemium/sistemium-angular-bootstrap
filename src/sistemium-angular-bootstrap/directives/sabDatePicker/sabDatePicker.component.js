@@ -8,7 +8,9 @@
     customClass: '<',
     clearText: '@',
     closeText: '@',
-    options: '<'
+    options: '<',
+    ngRequired: '<',
+    placeholder: '@'
   };
 
   angular.module('sistemiumBootstrap.directives')
@@ -65,6 +67,8 @@
 
       vm.altInputFormats = ['yyyy/MM/dd', 'yyyy.MM.dd'];
 
+      vm.placeholder = vm.placeholder || 'Data';
+
       $scope.$watch('vm.value', function () {
 
         vm.date = vm.value ? dateWithoutTime(vm.value) : null;
@@ -82,6 +86,8 @@
 
         if (vm.dateInputValid) {
           vm.date = dateWithoutTime(dateInput);
+        } else {
+          vm.date = null;
         }
 
       });
