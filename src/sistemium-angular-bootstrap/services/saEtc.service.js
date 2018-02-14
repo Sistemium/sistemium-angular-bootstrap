@@ -2,7 +2,11 @@
 
 (function () {
 
-  function saEtc($window, $timeout) {
+  function saEtc($window, $timeout, $rootScope) {
+
+    function debounce(fn, timeout, scope = $rootScope) {
+      return _.debounce(() => {scope.$applyAsync(fn)}, timeout);
+    }
 
     function blurActive() {
       return _.result($window.document, 'activeElement.blur');
@@ -41,6 +45,7 @@
 
 
     return {
+      debounce,
       scrolTopElementById,
       getElementById,
       blurActive,
