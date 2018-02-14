@@ -48,10 +48,7 @@
               }
               return v4Params;
             });
-            countPromise.catch(function (res) {
-              //ctrl.processServerError(res);
-              $defer.reject();
-            });
+            countPromise.catch($defer.reject);
           }
 
           var dataPromiseOrNothing = function () {

@@ -1,6 +1,6 @@
 (function () {
 
-  function saControllerHelper($q, $timeout) {
+  function saControllerHelper($q) {
 
     return {
       setup
@@ -48,7 +48,7 @@
     function setup(vm, scope) {
 
       let bindAllStore = {};
-      let busyArray = [];
+      // let busyArray = [];
       let watches = {};
 
       scope.$on('$destroy', () => _.each(bindAllStore, unbind => unbind()));
