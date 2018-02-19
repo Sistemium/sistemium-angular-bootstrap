@@ -5,7 +5,12 @@
   function saEtc($window, $timeout, $rootScope) {
 
     function debounce(fn, timeout, scope = $rootScope) {
-      return _.debounce(() => {scope.$applyAsync(fn)}, timeout);
+      return _.debounce(function () {
+        const args = arguments;
+        scope.$applyAsync(() => {
+          fn.apply(null, args);
+        })
+      }, timeout);
     }
 
     function blurActive() {

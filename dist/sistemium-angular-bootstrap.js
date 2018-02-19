@@ -885,7 +885,10 @@
       var scope = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : $rootScope;
 
       return _.debounce(function () {
-        scope.$applyAsync(fn);
+        var args = arguments;
+        scope.$applyAsync(function () {
+          fn.apply(null, args);
+        });
       }, timeout);
     }
 
