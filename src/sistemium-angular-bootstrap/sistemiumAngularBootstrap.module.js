@@ -14,8 +14,7 @@
 
   // Modules
   angular.module('sistemiumBootstrap.dependencies', [
-    'ui.bootstrap',
-    'ngTable'
+    'ui.bootstrap'
   ])
     .config(['$uibTooltipProvider', function ($uibTooltipProvider) {
       $uibTooltipProvider.options({trigger: 'outsideClick'});
