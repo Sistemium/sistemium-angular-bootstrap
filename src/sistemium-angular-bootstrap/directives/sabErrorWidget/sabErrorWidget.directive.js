@@ -5,7 +5,7 @@
 
       return {
 
-        restrict: 'AC',
+        restrict: 'A',
         templateUrl: 'sistemium-angular-bootstrap/directives/sabErrorWidget/sabErrorWidget.html',
         controllerAs: 'dm',
 

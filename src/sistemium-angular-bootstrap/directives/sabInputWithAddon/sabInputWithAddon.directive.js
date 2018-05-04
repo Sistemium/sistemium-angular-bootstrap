@@ -22,7 +22,7 @@
     .directive('sabInputWithAddon', function () {
       return {
 
-        restrict: 'AC',
+        restrict: 'A',
         templateUrl: 'sistemium-angular-bootstrap/directives/sabInputWithAddon/sabInputWithAddon.html',
         replace: true,
         scope: {
