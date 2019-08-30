@@ -1,6 +1,6 @@
 (function () {
 
-  function saControllerHelper($q) {
+  function saControllerHelper($q, $state) {
 
     return {
       setup
@@ -31,7 +31,11 @@
 
     function watchStateChange(vm, $scope) {
 
-      managedOn($scope, '$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) => {
+      managedOn($scope, '$stateChangeSuccess', stateChangeSuccessHandler);
+
+      stateChangeSuccessHandler(null, $state.current, $state.params);
+
+      function stateChangeSuccessHandler(event, toState, toParams, fromState, fromParams) {
 
         _.assign(vm, {
           currentState: _.first(toState.name.match(/[^.]+$/))
@@ -41,7 +45,7 @@
           vm.onStateChange(toState, toParams, fromState, fromParams);
         }
 
-      });
+      }
 
     }
 
