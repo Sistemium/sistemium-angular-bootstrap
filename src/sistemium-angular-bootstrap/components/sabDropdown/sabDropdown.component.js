@@ -12,7 +12,8 @@
       options: '=',
       placement: '@',
       allowClear: '=',
-      orderDir: '@'
+      orderDir: '@',
+      appendToBody: '<'
     },
 
     templateUrl: 'sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.html',
