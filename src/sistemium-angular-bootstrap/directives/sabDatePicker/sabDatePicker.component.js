@@ -60,7 +60,7 @@
       vm.options = _.defaults({
         minDate: vm.minDate && dateWithoutTime(vm.minDate),
         maxDate: vm.maxDate && dateWithoutTime(vm.maxDate),
-        initDate: vm.initDate,
+        initDate: vm.initDate && dateWithoutTime(vm.initDate),
         customClass: vm.customClass,
         showWeeks: false
       }, vm.options || {});
@@ -97,7 +97,7 @@
       $scope.$watch('vm.date', function (nv) {
 
         if (!isValid(nv)) {
-          vm.date = vm.initDate ? dateWithoutTime(vm.initDate) : null;
+          vm.date = null;
         }
 
         vm.value = vm.date ? moment(vm.date.toISOString()).format(ymdFormat) : null;
