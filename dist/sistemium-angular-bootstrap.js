@@ -25,7 +25,7 @@
 (function () {
   angular.module("sistemiumBootstrap").run(["$templateCache", function ($templateCache) {
     $templateCache.put("sistemium-angular-bootstrap/components/buttonAdd/buttonAdd.html", "\n<button class=\"button-add btn btn-warning\" ng-click=\"vm.buttonClick()\"><i class=\"glyphicon glyphicon-plus\"></i></button>");
-    $templateCache.put("sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.html", "\n<div class=\"sab-dropdown\" ng-hide=\"vm.newItem\">\n  <button class=\"button-clear btn btn-link animate-show\" ng-if=\"vm.allowClear\" ng-show=\"vm.currentId\" ng-click=\"vm.clearClick()\"><i class=\"glyphicon glyphicon-remove\"></i></button><a href=\"\" uib-popover-template=\"&quot;sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.template.html&quot;\" popover-is-open=\"vm.isOpen\" popover-placement=\"{{vm.placement || &quot;bottom-left&quot;}}\">\n    <div class=\"name\"><span ng-if=\"vm.itemsGroupProperty &amp;&amp; vm.currentItem\" ng-bind=\"vm.groupLabel(vm.currentItem)\"></span><span>{{ vm.currentItem[vm.itemsNameProperty] || vm.emptyText }}</span></div><span class=\"caret\"></span></a>\n  <button-add button-click=\"vm.addClick()\" ng-if=\"vm.enableAdding\"></button-add>\n</div>\n<div class=\"edit-block\" ng-if=\"vm.newItem\">\n  <div class=\"title\"><span>{{ vm.newItemTitle }}</span><a class=\"save animate-show\" href=\"\" ng-click=\"vm.saveClick($event)\" ng-show=\"vm.newItem.isValid()\"><i class=\"glyphicon glyphicon-ok\"></i></a><a class=\"cancel\" href=\"\" ng-click=\"vm.cancelClick($event)\"><i class=\"glyphicon glyphicon-remove\"></i></a></div>\n  <transform-to-component component-name=\"{{vm.editComponentName}}\" instance=\"vm.newItem\"></transform-to-component>\n</div>");
+    $templateCache.put("sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.html", "\n<div class=\"sab-dropdown\" ng-hide=\"vm.newItem\">\n  <button class=\"button-clear btn btn-link animate-show\" ng-if=\"vm.allowClear\" ng-show=\"vm.currentId\" ng-click=\"vm.clearClick()\"><i class=\"glyphicon glyphicon-remove\"></i></button><a href=\"\" uib-popover-template=\"&quot;sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.template.html&quot;\" popover-is-open=\"vm.isOpen\" popover-placement=\"{{vm.placement || &quot;bottom-left&quot;}}\" popover-append-to-body=\"vm.appendToBody\" popover-class=\"sab-dropdown-inner\">\n    <div class=\"name\"><span ng-if=\"vm.itemsGroupProperty &amp;&amp; vm.currentItem\" ng-bind=\"vm.groupLabel(vm.currentItem)\"></span><span>{{ vm.currentItem[vm.itemsNameProperty] || vm.emptyText }}</span></div><span class=\"caret\"></span></a>\n  <button-add button-click=\"vm.addClick()\" ng-if=\"vm.enableAdding\"></button-add>\n</div>\n<div class=\"edit-block\" ng-if=\"vm.newItem\">\n  <div class=\"title\"><span>{{ vm.newItemTitle }}</span><a class=\"save animate-show\" href=\"\" ng-click=\"vm.saveClick($event)\" ng-show=\"vm.newItem.isValid()\"><i class=\"glyphicon glyphicon-ok\"></i></a><a class=\"cancel\" href=\"\" ng-click=\"vm.cancelClick($event)\"><i class=\"glyphicon glyphicon-remove\"></i></a></div>\n  <transform-to-component component-name=\"{{vm.editComponentName}}\" instance=\"vm.newItem\"></transform-to-component>\n</div>");
     $templateCache.put("sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.template.html", "\n<div class=\"search-add\" ng-hide=\"vm.newItem\">\n  <vfs-searcher class=\"search\" search=\"vm.search\" ng-keydown=\"vm.onKeyDown($event)\"></vfs-searcher>\n  <button-add button-click=\"vm.addClick()\" ng-if=\"vm.enableAdding\"></button-add>\n</div>\n<div class=\"scroll-y sab-dropdown-items\" vs-repeat=\"34\" id=\"{{ vm.id }}\" ng-if=\"vm.id\" resize resize-offset-top=\"15\">\n  <div class=\"sab-dropdown-item\" id=\"{{ item.id }}\" ng-repeat=\"item in vm.filteredData track by item.id\" ng-class=\"{active : !vm.focused &amp;&amp; vm.currentItem.id === item.id, focused: vm.focused.id === item.id }\" ng-click=\"vm.itemClick(item)\"><span ng-if=\"vm.itemsGroupProperty\">{{ vm.groupLabel(item) }}&nbsp;</span><span>{{item[vm.itemsNameProperty]}}</span></div>\n</div>\n<div class=\"no-results\" ng-if=\"!vm.filteredData.length\"><span ng-if=\"vm.search\">Подходящих данных нет</span><span ng-if=\"!vm.search\">Данных нет</span><span ng-if=\"vm.enableAdding\">, хотите</span> <a href=\"\" ng-if=\"vm.enableAdding\" ng-click=\"$event.stopPropagation();vm.addClick($event)\">добавить</a> <span ng-if=\"vm.enableAdding\">новую запись?</span>\n</div>");
     $templateCache.put("sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePicker.html", "\n<div class=\"input-group\"><span class=\"input-group-btn\">\n    <button class=\"btn btn-default\" ng-click=\"vm.prevDayClick()\" ng-disabled=\"vm.datepickerOptions.minDate &amp;&amp; vm.date &lt;= vm.datepickerOptions.minDate\"><i class=\"glyphicon glyphicon-chevron-left\"></i></button></span><span class=\"form-control text-center\" uib-datepicker-popup ng-model=\"vm.date\" datepicker-options=\"vm.datepickerOptions\" is-open=\"datepickerPopupOpened\" datepicker-append-to-body=\"true\" no-show-button-bar=\"false\" on-open-focus=\"false\" ng-required=\"true\" current-text=\"false\" close-text=\"{{ vm.closeText }}\" clear-text=\"{{ vm.clearText }}\" ng-click=\"datepickerPopupOpened = !datepickerPopupOpened\">{{ vm.date | amDateFormat:vm.dateFormat }}</span><span class=\"input-group-btn\">\n    <button class=\"btn btn-default\" ng-click=\"vm.nextDayClick()\" ng-disabled=\"vm.datepickerOptions.maxDate &amp;&amp; vm.date &gt;= vm.datepickerOptions.maxDate\"><i class=\"glyphicon glyphicon-chevron-right\"></i></button></span></div>");
     $templateCache.put("sistemium-angular-bootstrap/directives/sabDatePicker/sabDatePickerInput.html", "\n<div class=\"input-group\">\n  <input class=\"form-control\" uib-datepicker-popup=\"yyyy-MM-dd\" alt-input-formats=\"vm.altInputFormats\" ng-model=\"vm.dateInput\" ng-class=\"{invalid: !vm.dateInputValid}\" datepicker-options=\"vm.datepickerOptions\" is-open=\"datepickerPopupOpened\" datepicker-append-to-body=\"true\" no-show-button-bar=\"false\" on-open-focus=\"false\" ng-click=\"datepickerPopupOpened=!datepickerPopupOpened\" ng-required=\"vm.ngRequired\" current-text=\"false\" close-text=\"{{ vm.closeText }}\" clear-text=\"{{ vm.clearText }}\" placeholder=\"{{ vm.placeholder }}\" maxlength=\"10\" sa-enter-key=\"datepickerPopupOpened=false\" ng-blur=\"vm.onInputBlur($event)\"><span class=\"input-group-btn\">\n    <button class=\"btn btn-default sab-date-picker-toggle\" ng-click=\"datepickerPopupOpened = !datepickerPopupOpened\"><i class=\"glyphicon glyphicon-calendar\"></i></button></span>\n</div>");
@@ -167,7 +167,7 @@
       vm.options = _.defaults({
         minDate: vm.minDate && dateWithoutTime(vm.minDate),
         maxDate: vm.maxDate && dateWithoutTime(vm.maxDate),
-        initDate: vm.initDate,
+        initDate: vm.initDate && dateWithoutTime(vm.initDate),
         customClass: vm.customClass,
         showWeeks: false
       }, vm.options || {});
@@ -202,7 +202,7 @@
       $scope.$watch('vm.date', function (nv) {
 
         if (!isValid(nv)) {
-          vm.date = vm.initDate ? dateWithoutTime(vm.initDate) : null;
+          vm.date = null;
         }
 
         vm.value = vm.date ? moment(vm.date.toISOString()).format(ymdFormat) : null;
@@ -276,7 +276,8 @@
       options: '=',
       placement: '@',
       allowClear: '=',
-      orderDir: '@'
+      orderDir: '@',
+      appendToBody: '<'
     },
 
     templateUrl: 'sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.html',
@@ -878,8 +879,8 @@
 
 (function () {
 
-  saControllerHelper.$inject = ["$q"];
-  function saControllerHelper($q) {
+  saControllerHelper.$inject = ["$q", "$state"];
+  function saControllerHelper($q, $state) {
 
     return {
       setup: setup
@@ -909,7 +910,11 @@
 
     function watchStateChange(vm, $scope) {
 
-      managedOn($scope, '$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+      managedOn($scope, '$stateChangeSuccess', stateChangeSuccessHandler);
+
+      stateChangeSuccessHandler(null, $state.current, $state.params);
+
+      function stateChangeSuccessHandler(event, toState, toParams, fromState, fromParams) {
 
         _.assign(vm, {
           currentState: _.first(toState.name.match(/[^.]+$/))
@@ -918,7 +923,7 @@
         if (_.isFunction(vm.onStateChange)) {
           vm.onStateChange(toState, toParams, fromState, fromParams);
         }
-      });
+      }
     }
 
     function setup(vm, scope) {
