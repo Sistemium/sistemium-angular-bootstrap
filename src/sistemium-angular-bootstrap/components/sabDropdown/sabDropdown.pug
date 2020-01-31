@@ -13,7 +13,7 @@
   popover-is-open='vm.isOpen'
   popover-placement='{{vm.placement || "bottom-left"}}'
   popover-append-to-body="vm.appendToBody"
-  popover-class="sab-dropdown-inner"
+  popover-class="sab-dropdown-inner {{vm.popoverClass || ''}}"
   )
     .name
       span(

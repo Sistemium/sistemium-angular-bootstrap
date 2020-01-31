@@ -13,7 +13,8 @@
       placement: '@',
       allowClear: '=',
       orderDir: '@',
-      appendToBody: '<'
+      appendToBody: '<',
+      popoverClass: '@'
     },
 
     templateUrl: 'sistemium-angular-bootstrap/components/sabDropdown/sabDropdown.html',
