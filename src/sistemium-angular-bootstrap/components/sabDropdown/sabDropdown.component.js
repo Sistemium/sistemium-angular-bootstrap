@@ -223,6 +223,10 @@
 
         let idx = _.findIndex(vm.filteredData, vm.currentItem);
 
+        if (idx < 0) {
+          return;
+        }
+
         scroller.scrollTop = (idx + 1) * itemHeight;
 
         return $timeout(200)
